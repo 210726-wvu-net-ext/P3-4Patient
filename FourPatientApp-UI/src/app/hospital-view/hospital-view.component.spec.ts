@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HospitalSearchComponent } from './hospital-search.component';
+import { HospitalViewComponent } from './hospital-view.component';
 
-describe('HospitalSearchComponent', () => {
-  let component: HospitalSearchComponent;
-  let fixture: ComponentFixture<HospitalSearchComponent>;
+describe('HospitalViewComponent', () => {
+  let component: HospitalViewComponent;
+  let fixture: ComponentFixture<HospitalViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HospitalSearchComponent ]
+      declarations: [ HospitalViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HospitalSearchComponent);
+    fixture = TestBed.createComponent(HospitalViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
