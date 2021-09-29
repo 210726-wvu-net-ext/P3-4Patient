@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace FourPatient.DataAccess.Entities
 {
-    public partial class Patient4Context : DbContext
+    public partial class _4PatientContext : DbContext
     {
-        public Patient4Context()
+        public _4PatientContext()
         {
         }
 
-        public Patient4Context(DbContextOptions<Patient4Context> options)
+        public _4PatientContext(DbContextOptions<_4PatientContext> options)
             : base(options)
         {
         }
@@ -24,7 +24,6 @@ namespace FourPatient.DataAccess.Entities
         public virtual DbSet<Nursing> Nursings { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -186,33 +185,35 @@ namespace FourPatient.DataAccess.Entities
                 entity.HasOne(d => d.Accommodation)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.AccommodationId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("AccommodationReviewFK");
 
                 entity.HasOne(d => d.Cleanliness)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.CleanlinessId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("CleanlinessReviewFK");
 
                 entity.HasOne(d => d.Covid)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.CovidId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("CovidReviewFK");
 
                 entity.HasOne(d => d.Hospital)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.Hospitalid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("HospitalReviewFK");
 
                 entity.HasOne(d => d.Nursing)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.NursingId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("NursingReviewFK");
 
-                entity.HasOne(d => d.PatientNavigation)
+                entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.Patient)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasForeignKey(d => d.PatientId)
                     .HasConstraintName("PatientReviewFK");
             });
 

@@ -1,0 +1,27 @@
+<div class="registrationForm">
+    <h1>Register</h1>
+    <form #registerForm="ngForm">
+      <div>
+        <input type="text" ngModel required #lastName="ngModel" id="lastname" name="LastName" placeholder="Last Name">
+        <input type="text" ngModel required #firstName="ngModel" id="firstname" name="FirstName" placeholder="First Name">
+      </div>
+      <div>
+        <input type="date" ngModel required #dob="ngModel" id="dob" name="DOB">
+      </div>
+      <div>
+        <input type="text" ngModel required #address="ngModel" id="address" name="Address" placeholder="Address">
+        <input type="text" ngModel required #city="ngModel" id="city" name="City" placeholder="City">
+        <input type="text" ngModel required #zip="ngModel" id="zip" name="Zip" placeholder="Zip Code">
+        <input type="text" ngModel required #state="ngModel" id="state" name="State" placeholder="State">
+      </div>
+      <div>
+        <input type="text" ngModel required #email="ngModel" id="email" name="Email" placeholder="Email">
+        <input type="tel" ngModel required #phone="ngModel" id="phone" name="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+      </div>
+      <div>
+        <input type="text" ngModel required #password="ngModel" id="password" name="password" placeholder="password">
+        <input type="text" ngModel required #confirm="ngModel" id="confirm" name="confirm" placeholder="confirm password">
+      </div>
+      <button [disabled]="!registerForm.form.valid" id="loginButton" class="btn btn-dark" (click)="register(lastName.value, firstName.value, dob.value, address.value, city.value, zip.value, state.value, email.value, phone.value, password.value, confirm.value)">Login</button>
+    </form>
+  </div>

@@ -1,0 +1,4 @@
+<div class="serchForm">
+    <input type="text" ngModel required #searchString="ngModel" id="Search" placeholder="Search Hospitals...">
+    <button id="searchButton" (click)="searchHospitals(searchString.value)">Submit</button>
+</div>
