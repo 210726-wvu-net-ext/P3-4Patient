@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace FourPatient.WebAPI
+namespace FourPatient.DataAccess.Entities
 {
     public partial class Hospital
     {
