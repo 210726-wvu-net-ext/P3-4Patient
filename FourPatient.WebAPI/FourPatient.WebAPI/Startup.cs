@@ -36,7 +36,7 @@ namespace FourPatient.WebAPI
             services.AddScoped<IReview, ReviewRepo>();
 
             services.AddControllers();
-            services.AddDbContext<Patient4Context>(x =>
+            services.AddDbContext<_4PatientContext>(x =>
                 x.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
             services.AddSwaggerGen(c =>

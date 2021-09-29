@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
 
 namespace FourPatient.Domain.Tables
 {
-    public class Cleanliness
+    public partial class Cleanliness
     {
         public Cleanliness()
         {
+            Reviews = new HashSet<Review>();
         }
 
         public int Id { get; set; }

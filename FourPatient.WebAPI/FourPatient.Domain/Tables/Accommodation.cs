@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+
+#nullable disable
 
 namespace FourPatient.Domain.Tables
 {
-    public class Accommodation
+    public partial class Accommodation
     {
         public Accommodation()
         {
+            Reviews = new HashSet<Review>();
         }
 
         public int Id { get; set; }
