@@ -41,12 +41,12 @@ steps:
   workingDirectory: $(appDir)
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'SymptoMedic_Sonarcloud'
+    SonarCloud: 'FourPatient_Sonarcloud'
     organization: '210726-wvu-net-ext'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'SymptoMedic-Frontend'
-    cliProjectName: 'SymptoMedic-Frontend'
+    cliProjectKey: 'FourPatient-Frontend'
+    cliProjectName: 'FourPatient-Frontend'
     cliSources: '$(appDir)/src'
     extraProperties: |
       sonar.javascript.lcov.reportPaths=$(appDir)/coverage/$(appDir)/lcov.info
