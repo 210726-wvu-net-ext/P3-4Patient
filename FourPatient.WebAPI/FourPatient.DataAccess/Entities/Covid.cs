@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
-namespace FourPatient.DataAccess.Entities
+namespace FourPatient.WebAPI
 {
     public partial class Covid
     {
