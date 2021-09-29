@@ -5,6 +5,7 @@
 
 trigger:
 - master
+- Develop
 
 pool:
   vmImage: ubuntu-latest
@@ -14,6 +15,7 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+- script: npm install
 
 - task: AngularCLI@1
   inputs:
