@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FourPatient.DataAccess.Entities;
+using FourPatient.Domain;
+using FourPatient.DataAccess;
 
 namespace FourPatient.WebAPI
 {
@@ -28,6 +30,10 @@ namespace FourPatient.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IHospital, HospitalRepo>();
+            services.AddScoped<IPatient, PatientRepo>();
+
+            services.AddScoped<IReview, ReviewRepo>();
 
             services.AddControllers();
             services.AddDbContext<Patient4Context>(x =>
@@ -43,7 +49,7 @@ namespace FourPatient.WebAPI
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200",
-                                                          "http://localhost:30000"
+                                                          "http://localhost:44347"
                     );
                 });
             });
