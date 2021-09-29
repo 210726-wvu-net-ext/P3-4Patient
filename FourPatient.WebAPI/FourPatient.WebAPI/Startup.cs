@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FourPatient.DataAccess.Entities;
 
 namespace FourPatient.WebAPI
 {
@@ -28,9 +30,22 @@ namespace FourPatient.WebAPI
         {
 
             services.AddControllers();
+            services.AddDbContext<Patient4Context>(x =>
+                x.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FourPatient.WebAPI", Version = "v1" });
+            });
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200",
+                                                          "http://localhost:30000"
+                    );
+                });
             });
         }
 
@@ -47,6 +62,8 @@ namespace FourPatient.WebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseStaticFiles();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
