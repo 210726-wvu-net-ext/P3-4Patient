@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace FourPatient.DataAccess.Entities
+namespace FourPatient.WebAPI
 {
     public partial class Nursing
     {
