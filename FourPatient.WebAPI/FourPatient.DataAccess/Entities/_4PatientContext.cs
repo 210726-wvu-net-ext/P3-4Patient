@@ -1,19 +1,18 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using FourPatient.WebAPI;
 
 #nullable disable
 
-namespace ../FourPatient.DataAccess.Entities
+namespace FourPatient.DataAccess.Entities
 {
-    public partial class Patient4Context : DbContext
+    public partial class _4PatientContext : DbContext
     {
-        public Patient4Context()
+        public _4PatientContext()
         {
         }
 
-        public Patient4Context(DbContextOptions<Patient4Context> options)
+        public _4PatientContext(DbContextOptions<_4PatientContext> options)
             : base(options)
         {
         }
