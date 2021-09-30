@@ -16,6 +16,8 @@ namespace FourPatient.WebAPI.Models
         public string Password { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
+        [Required]
+        [StringLength(2, MinimumLength = 2, ErrorMessage = "State must be 2 characters")]
         public string State { get; set; }
         [Required]
         [DataType(DataType.Date, ErrorMessage = "Please enter date in correct form")]

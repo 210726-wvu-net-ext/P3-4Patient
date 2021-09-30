@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FourPatient.DataAccess.Entities;
 using FourPatient.Domain;
 using FourPatient.DataAccess;
+using FourPatient.DataAccess.Entities;
 
 namespace FourPatient.WebAPI
 {
@@ -32,8 +32,11 @@ namespace FourPatient.WebAPI
         {
             services.AddScoped<IHospital, HospitalRepo>();
             services.AddScoped<IPatient, PatientRepo>();
-
             services.AddScoped<IReview, ReviewRepo>();
+            services.AddScoped<IAccommodation, AccommodationRepo>();
+            services.AddScoped<ICleanliness, CleanlinessRepo>();
+            services.AddScoped<ICovid, CovidRepo>();
+            services.AddScoped<INursing, NursingRepo>();
 
             services.AddControllers();
             services.AddDbContext<_4PatientContext>(x =>
