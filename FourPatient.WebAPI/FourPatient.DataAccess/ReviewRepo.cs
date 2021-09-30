@@ -1,4 +1,4 @@
-﻿using FourPatient.DataAccess.Entities;
+using FourPatient.DataAccess.Entities;
 using FourPatient.Domain;
 using System;
 using System.Collections.Generic;
@@ -92,6 +92,5 @@ namespace FourPatient.DataAccess
             // write changes to DB
             _context.SaveChanges();
         }
-
     }
 }

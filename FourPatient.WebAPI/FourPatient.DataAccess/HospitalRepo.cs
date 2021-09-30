@@ -94,6 +94,5 @@ namespace FourPatient.DataAccess
             // write changes to DB
             _context.SaveChanges();
         }
-
     }
 }
