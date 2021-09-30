@@ -7,12 +7,12 @@ using FourPatient.Domain.Tables;
 
 namespace FourPatient.Domain
 {
-    public interface IReview
+    public interface INursing
     {
-        IEnumerable<Review> GetAll();
-        Review Get(int id);
-        void Create(Review review);
-        void Update(Review review);
+        IEnumerable<Nursing> GetAll();
+        Nursing Get(int id);
+        void Create(Nursing survey);
+        void Update(Nursing survey);
         void Delete(int id);
     }
 }

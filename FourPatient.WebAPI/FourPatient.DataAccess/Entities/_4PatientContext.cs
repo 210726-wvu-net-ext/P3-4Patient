@@ -17,11 +17,11 @@ namespace FourPatient.DataAccess.Entities
         {
         }
 
-        public virtual DbSet<Accommodation> Accommodations { get; set; }
-        public virtual DbSet<Cleanliness> Cleanlinesses { get; set; }
-        public virtual DbSet<Covid> Covids { get; set; }
+        public virtual DbSet<Accommodation> Accommodation { get; set; }
+        public virtual DbSet<Cleanliness> Cleanliness { get; set; }
+        public virtual DbSet<Covid> Covid { get; set; }
         public virtual DbSet<Hospital> Hospitals { get; set; }
-        public virtual DbSet<Nursing> Nursings { get; set; }
+        public virtual DbSet<Nursing> Nursing { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
 
