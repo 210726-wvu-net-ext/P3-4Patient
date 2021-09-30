@@ -15,7 +15,11 @@ using System.Threading.Tasks;
 using FourPatient.Domain;
 using FourPatient.DataAccess;
 using FourPatient.DataAccess.Entities;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 namespace FourPatient.WebAPI
 {
     public class Startup
@@ -56,6 +60,33 @@ namespace FourPatient.WebAPI
                     );
                 });
             });
+            string domain = $"https://{Configuration["Auth0:Domain"]}/";
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = domain;
+                options.Audience = Configuration["Auth0:Audience"];
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = ClaimTypes.NameIdentifier
+                };
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("read:weather", policy => policy.Requirements.Add(new HasScopeRequirement("read:weather", $"https://{Configuration["Auth0:Domain"]}/")));
+            });
+
+            services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+
+            services.AddControllers()
+                 .AddNewtonsoftJson(options =>
+                 {
+                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +104,8 @@ namespace FourPatient.WebAPI
             app.UseRouting();
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
-
+            
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

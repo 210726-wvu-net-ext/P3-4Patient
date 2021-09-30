@@ -11,8 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
-
 import { HerosectionComponent } from './herosection/herosection.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,6 @@ import { HerosectionComponent } from './herosection/herosection.component';
     RegisterComponent,
     AccountComponent,
     HospitalViewComponent,
-   
     HerosectionComponent
   ],
   imports: [
@@ -43,7 +44,11 @@ import { HerosectionComponent } from './herosection/herosection.component';
     ])
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
