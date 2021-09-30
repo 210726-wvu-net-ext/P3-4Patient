@@ -7,7 +7,6 @@ namespace FourPatient.WebAPI.Models
 {
     public class Nursing
     {
-
         public int Id { get; set; }
         public int? Attentiveness { get; set; }
         public int? Transparecy { get; set; }
