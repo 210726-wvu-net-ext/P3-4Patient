@@ -12,6 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
 
+import { HerosectionComponent } from './herosection/herosection.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { HospitalViewComponent } from './hospital-view/hospital-view.component';
     LoginComponent,
     RegisterComponent,
     AccountComponent,
-    HospitalViewComponent
+    HospitalViewComponent,
+   
+    HerosectionComponent
   ],
   imports: [
     HttpClientModule,
@@ -34,6 +38,8 @@ import { HospitalViewComponent } from './hospital-view/hospital-view.component';
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'hero', component: HerosectionComponent },
+   
     ])
 
   ],
