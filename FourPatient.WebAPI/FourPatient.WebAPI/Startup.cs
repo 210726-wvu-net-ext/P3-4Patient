@@ -60,7 +60,9 @@ namespace FourPatient.WebAPI
                     );
                 });
             });
+
             string domain = $"https://{Configuration["Auth0:Domain"]}/";
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -12,8 +12,8 @@ export class AuthService {
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
-      domain: 'FourPatient.WebAPI',
-      client_id: 'FourPatientApp-UI',
+      domain: 'dev-0wu275gq.us.auth0.com',
+      client_id: '1ECgLy3HYhJSuekX3P1ZsQtNlVI3ihB4',
       redirect_uri: `${window.location.origin}`,
       audience: 'http://localhost:44347'
     })
