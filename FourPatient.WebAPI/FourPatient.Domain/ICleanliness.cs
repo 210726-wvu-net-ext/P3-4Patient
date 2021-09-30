@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace FourPatient.Domain
 {
-    public interface IHospital
+    public interface ICleanliness
     {
-        IEnumerable<Hospital> GetAll();
-        Hospital Get(int id);
-        void Create(Hospital hospital);
-        void Update(Hospital hospital);
+        IEnumerable<Cleanliness> GetAll();
+        Cleanliness Get(int id);
+        void Create(Cleanliness survey);
+        void Update(Cleanliness survey);
         void Delete(int id);
     }
 }

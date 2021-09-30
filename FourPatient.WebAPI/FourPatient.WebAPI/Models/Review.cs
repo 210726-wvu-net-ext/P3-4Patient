@@ -7,7 +7,7 @@ namespace FourPatient.WebAPI.Models
     public class Review
     {
         public int Id { get; set; }
-        public int Patient { get; set; }
+        public int PatientId { get; set; }
         public decimal Comfort { get; set; }
         public DateTime? DatePosted { get; set; }
         public string Message { get; set; }
@@ -22,6 +22,6 @@ namespace FourPatient.WebAPI.Models
         public virtual Covid Covid { get; set; }
         public virtual Hospital Hospital { get; set; }
         public virtual Nursing Nursing { get; set; }
-        public virtual Patient PatientNavigation { get; set; }
+        public virtual Patient Patient { get; set; }
     }
 }
