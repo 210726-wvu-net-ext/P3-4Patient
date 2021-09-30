@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 #nullable disable
 
+// Hold BL objects, either from UI or DL
+
 namespace FourPatient.Domain.Tables
 {
     public partial class Accommodation

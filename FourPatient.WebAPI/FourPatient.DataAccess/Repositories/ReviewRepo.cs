@@ -1,10 +1,13 @@
-using FourPatient.DataAccess.Entities;
+﻿using FourPatient.DataAccess.Entities;
 using FourPatient.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+// This Class hold access methods for data layer
+
 
 namespace FourPatient.DataAccess
 {
@@ -92,5 +95,6 @@ namespace FourPatient.DataAccess
             // write changes to DB
             _context.SaveChanges();
         }
+
     }
 }

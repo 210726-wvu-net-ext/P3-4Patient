@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// This class holds access methods for data layer
+
 namespace FourPatient.DataAccess
 {
     public class AccommodationRepo : IAccommodation
@@ -18,6 +20,8 @@ namespace FourPatient.DataAccess
             context.Database.EnsureCreated();
             _context = context;
         }
+
+        // Map tables to entities
         private static Entities.Accommodation Entity(Domain.Tables.Accommodation n)
         {
             return new Entities.Accommodation
@@ -37,6 +41,8 @@ namespace FourPatient.DataAccess
                 AverageA = n.AverageA
             };
         }
+
+        // Map entities to tables
         private static Domain.Tables.Accommodation Table(Entities.Accommodation n)
         {
             return new Domain.Tables.Accommodation

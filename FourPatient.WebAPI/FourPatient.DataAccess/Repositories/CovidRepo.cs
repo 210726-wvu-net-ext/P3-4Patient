@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// This Class hold access methods for data layer
+
+
 namespace FourPatient.DataAccess
 {
     public class CovidRepo : ICovid

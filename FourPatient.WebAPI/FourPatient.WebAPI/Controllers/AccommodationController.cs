@@ -12,6 +12,8 @@ using FourPatient.Domain.Tables;
 using FourPatient.WebAPI.Models;
 using Accommodation = FourPatient.WebAPI.Models.Accommodation;
 
+// This class holds exposed API endpoints
+
 namespace FourPatient.WebAPI.Controllers
 {
     [ApiController]
@@ -77,6 +79,7 @@ namespace FourPatient.WebAPI.Controllers
             return Ok();
         }
 
+        // Map Table to Model
         private static Accommodation Model(Domain.Tables.Accommodation n)
         {
             return new Accommodation
@@ -96,6 +99,8 @@ namespace FourPatient.WebAPI.Controllers
                 AverageA = n.AverageA
             };
         }
+
+        // Map Model to Table
         private static Domain.Tables.Accommodation Table(Accommodation n)
         {
             return new Domain.Tables.Accommodation

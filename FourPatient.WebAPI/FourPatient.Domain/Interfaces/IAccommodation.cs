@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Expose DL repositories to UI
+
 namespace FourPatient.Domain
 {
     public interface IAccommodation

@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// This Class hold access methods for data layer
+
+
 namespace FourPatient.DataAccess
 {
     public class PatientRepo : IPatient
@@ -53,7 +56,7 @@ namespace FourPatient.DataAccess
                 ZipCode = n.ZipCode
             };
         }
-
+        // Get all the patients
         public IEnumerable<Domain.Tables.Patient> GetAll()
         {
             return _context.Patients
@@ -93,5 +96,6 @@ namespace FourPatient.DataAccess
             // write changes to DB
             _context.SaveChanges();
         }
+
     }
 }

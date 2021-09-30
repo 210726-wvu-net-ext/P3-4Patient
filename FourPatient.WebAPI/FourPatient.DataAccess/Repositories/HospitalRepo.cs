@@ -4,6 +4,9 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 
+// This Class hold access methods for data layer
+
+
 namespace FourPatient.DataAccess
 {
     public class HospitalRepo : IHospital
@@ -94,5 +97,6 @@ namespace FourPatient.DataAccess
             // write changes to DB
             _context.SaveChanges();
         }
+
     }
 }

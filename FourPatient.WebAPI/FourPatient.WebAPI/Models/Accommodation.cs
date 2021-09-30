@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+// Hold UI objects, either from user or BL
+
 namespace FourPatient.WebAPI.Models
 {
     public class Accommodation
