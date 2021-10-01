@@ -11,8 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
-import { HerosectionComponent } from './herosection/herosection.component';
+
 import { HospitalService } from './hospital.service';
+import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { HospitalService } from './hospital.service';
     RegisterComponent,
     AccountComponent,
     HospitalViewComponent,
+    HospitalDetailsComponent,
    
-    HerosectionComponent
+   
   ],
   imports: [
     HttpClientModule,
@@ -40,7 +42,8 @@ import { HospitalService } from './hospital.service';
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'hero', component: HerosectionComponent },
+      { path: 'details', component: HospitalDetailsComponent },
+  
    
     ])
 
