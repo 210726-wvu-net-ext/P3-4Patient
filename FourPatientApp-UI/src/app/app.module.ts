@@ -11,8 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
-
 import { HerosectionComponent } from './herosection/herosection.component';
+import { HospitalService } from './hospital.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,8 @@ import { HerosectionComponent } from './herosection/herosection.component';
   ],
   imports: [
     HttpClientModule,
+    FormsModule,
+    RouterModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
@@ -43,7 +45,7 @@ import { HerosectionComponent } from './herosection/herosection.component';
     ])
 
   ],
-  providers: [],
+  providers: [HospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

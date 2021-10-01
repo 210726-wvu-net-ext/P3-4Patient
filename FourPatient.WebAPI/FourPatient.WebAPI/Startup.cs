@@ -38,6 +38,13 @@ namespace FourPatient.WebAPI
             services.AddScoped<ICovid, CovidRepo>();
             services.AddScoped<INursing, NursingRepo>();
 
+            services.AddCors(c =>
+            {
+                c.AddPolicy("YO", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            });
+
+
             services.AddControllers();
             services.AddDbContext<_4PatientContext>(x =>
                 x.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
@@ -47,20 +54,22 @@ namespace FourPatient.WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FourPatient.WebAPI", Version = "v1" });
             });
 
-            services.AddCors(opt =>
-            {
-                opt.AddPolicy("CorsPolicy", policy =>
-                {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200",
-                                                          "http://localhost:44347"
-                    );
-                });
-            });
+            //services.AddCors(opt =>
+            //{
+            //    opt.AddPolicy("CorsPolicy", policy =>
+            //    {
+            //        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200",
+            //                                              "http://localhost:44347"
+            //        );
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -72,7 +81,7 @@ namespace FourPatient.WebAPI
 
             app.UseRouting();
             app.UseStaticFiles();
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

@@ -5,7 +5,7 @@ export interface Hospital {
     address: string,
     city: string,
     state: string,
-    zipcode: number,
+    zipCode: number,
     comfort: number,
     nursing: number,
     accomodations: number,
