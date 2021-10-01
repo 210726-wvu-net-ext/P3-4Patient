@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -10,7 +10,7 @@ export class NavBarComponent {
 
   isExpanded = false;
 
-  constructor() {
+  constructor(public auth: AuthService) {
   }
 
   collapse() {
