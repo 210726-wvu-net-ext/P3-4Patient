@@ -13,13 +13,7 @@ export class HomeComponent implements OnInit {
     headers: new HttpHeaders({'Access-Control-Allow-Origin': 'http://localhost:4200'})
   };
   constructor(private http: HttpClient) { 
-    let resp = this.http.get("https://localhost:44347/api/Patient/2", this.httpOptions);
-    resp.subscribe((result: any) => {
-      console.log(result)
 
-      this.user = result.firstName;
-
-    }, error => console.error(error))
   }
 
   ngOnInit(): void {
