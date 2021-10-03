@@ -14,6 +14,20 @@ import { HospitalViewComponent } from './hospital-view/hospital-view.component';
 
 import { HospitalService } from './hospital.service';
 import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSliderModule } from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+
+
+
 
 @NgModule({
   declarations: [
@@ -45,10 +59,25 @@ import { HospitalDetailsComponent } from './hospital-details/hospital-details.co
       { path: 'details', component: HospitalDetailsComponent },
   
    
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatStepperModule,   
+    MatIconModule,
+    MatBottomSheetModule, 
+    MatButtonModule,
+    MatButtonToggleModule,
+ 
+
+    MatChipsModule,
+    MatInputModule,
+    MatListModule,
 
   ],
   providers: [HospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+  

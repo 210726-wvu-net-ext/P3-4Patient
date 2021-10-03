@@ -1,1 +1,1399 @@
 <p>create-review works!</p>
+<pre>
+  <!-- <fieldset>
+    <legend class="text-base font-medium text-gray-900">By Email</legend>
+    <div class="mt-4 space-y-4">
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="comments" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+        </div>
+        <div class="ml-3 text-sm">
+          <label for="comments" class="font-medium text-gray-700">Comments</label>
+          <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="candidates" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+        </div>
+        <div class="ml-3 text-sm">
+          <label for="candidates" class="font-medium text-gray-700">Candidates</label>
+          <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
+        </div>
+      </div>
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="offers" name="offers" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+        </div>
+        <div class="ml-3 text-sm">
+          <label for="offers" class="font-medium text-gray-700">Offers</label>
+          <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+ -->
+
+
+
+</pre>
+
+
+<div >
+
+  <!-- <mat-icon>thump_up</mat-icon> -->
+  <mat-horizontal-stepper [labelPosition]="'bottom'">
+
+    <mat-step >
+      <ng-template matStepLabel><b>Accommodations</b></ng-template>
+   
+      <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-4 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Accommodations</h3>
+              <p class="mt-1 text-sm text-gray-600">
+              Place Holder
+              </p>
+              
+            </div>
+            
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form action="#" method="POST">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Hospital Processes</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the checking in and checking out process?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+      
+                      <p class="text-sm text-gray-500">How satisfied were you with the hospital's ease of discharge?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+               
+                      <p class="text-sm text-gray-500">How satisfied were you with the medical equipment/technology used?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How satisfied were you with the hospital's visitation policies?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Rooming and Privacy</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the amount of privacy provided?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+               
+                      <p class="text-sm text-gray-500">How satisfied were you with the size of your room?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Food Options</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the food options available?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                     
+                      <p class="text-sm text-gray-500">How satisfied were you with the quality of the food?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How satisfied were you with the range of dietary options?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Handicap Accessibility</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the handicap accommodations?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                     
+                      <p class="text-sm text-gray-500">How satisfied were you with the parking accommodations?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                </div>
+
+
+
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperPrevious>
+                    Back
+                  </button>
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperNext>
+                    Next
+                  </button>
+                
+                </div>
+              </div>
+            </form>        
+          </div>     
+        </div>
+      </div>
+    
+    </mat-step>
+    <mat-step >
+      <ng-template matStepLabel><b>Cleanliness</b></ng-template>
+
+      <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-4 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Cleanliness</h3>
+              <p class="mt-1 text-sm text-gray-600">
+               Super Place Holder
+              </p>
+              
+            </div>
+            
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form action="#" method="POST">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Cleanliness</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the cleanliness of the waiting room(s)</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+      
+                      <p class="text-sm text-gray-500">How satisfied were you with the cleanliness of your ward room?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+               
+                      <p class="text-sm text-gray-500">How satisfied were you with the cleanliness of the equipment used?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How satisfied were you with the cleanliness of the bahtorrom(s)</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  
+                </div>
+
+
+
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperPrevious>
+                    Back
+                  </button>
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperNext>
+                    Next
+                  </button>
+                
+                </div>
+              </div>
+            </form>        
+          </div>     
+        </div>
+      </div>
+    
+   
+
+    </mat-step>
+
+
+
+    <mat-step >
+      <ng-template matStepLabel><b>Nursing</b></ng-template>
+      <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-4 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Nursing</h3>
+              <p class="mt-1 text-sm text-gray-600">
+              Mega Place Holder
+              </p>
+              
+            </div>
+            
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form action="#" method="POST">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Nursing</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the atttentiveness of your nurse?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+      
+                      <p class="text-sm text-gray-500">How satisfied were you with the transparency of your nurse?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+               
+                      <p class="text-sm text-gray-500">How satisfied were you with the knowledge of your nurse?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How satisfied were you with the compassion of your nurse?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How satisfied were you with the wait times concernign your nurse?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  
+                </div>
+
+
+
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperPrevious>
+                    Back
+                  </button>
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperNext>
+                    Next
+                  </button>
+                
+                </div>
+              </div>
+            </form>        
+          </div>     
+        </div>
+      </div>
+    
+
+    </mat-step>
+
+    <mat-step >
+      <ng-template matStepLabel><b>Covid</b></ng-template>
+      <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-4 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">Covid</h3>
+              <p class="mt-1 text-sm text-gray-600">
+              Mega F Place Holder
+              </p>
+              
+            </div>
+            
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form action="#" method="POST">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">Covid Safety</legend>
+                      <p class="text-sm text-gray-500">How full were the waiting rooms?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+      
+                      <p class="text-sm text-gray-500">How satisfied were you with the degree of separation existed for those with COVID symptoms?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+               
+                      <p class="text-sm text-gray-500">How do you feel about the hospital's Covid Screening</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How safe did you feel around Covid in the hospital?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
+                        </label>
+                      </div>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                    
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">Did you visit for Covid Symptoms?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          Yes
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          No
+                        </label>
+                      </div>
+                      </div>
+                                      
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                      <legend class="text-base font-medium text-gray-900">If Yes.</legend>
+                      <p class="text-sm text-gray-500">How satisfied were you with the protocols followed?</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          Yes
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          No
+                        </label>
+                      </div>
+                      </div>
+                                      
+                    </div>
+
+                  </fieldset>
+                  <fieldset>
+                    <div>
+                  
+                      <p class="text-sm text-gray-500">How satisfied were you with your Covid treatment at this hospital</p>
+                    </div>
+
+                    <div class="md:grid md:grid-cols-5 md:gap-6">
+                    
+                      
+                      <div class="flex items-center ">
+                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                          Yes
+                        </label>
+                      </div>
+
+                        <div class="relative">
+                      <div class="flex items-center">
+                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                          No
+                        </label>
+                      </div>
+                      </div>
+                                      
+                    </div>
+
+                  </fieldset>
+                  
+                </div>
+
+
+
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperPrevious>
+                    Back
+                  </button>
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperNext>
+                    Next
+                  </button>
+                
+                </div>
+              </div>
+            </form>        
+          </div>     
+        </div>
+      </div>
+    
+      
+
+
+
+    </mat-step>
+    <mat-step >
+      <ng-template matStepLabel><b>Comments</b></ng-template>    
+      <form class="example-form"> 
+
+    
+            <div class="text-center">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Additional comments  </mat-label>
+          <textarea matInput placeholder="Ex. This hospital is..."></textarea>
+        </mat-form-field>
+      </div>
+      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-center" mat-button matStepperNext>
+        Submit
+      </button>
+      
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>
+ 
