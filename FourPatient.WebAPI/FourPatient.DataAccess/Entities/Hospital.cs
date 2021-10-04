@@ -13,7 +13,6 @@ namespace FourPatient.DataAccess.Entities
         {
             Reviews = new HashSet<Review>();
         }
-
         // Primitive properties
         // Data type? = Nullable
         public int Id { get; set; }

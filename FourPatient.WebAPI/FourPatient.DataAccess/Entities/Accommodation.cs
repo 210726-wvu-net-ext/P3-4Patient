@@ -9,15 +9,10 @@ namespace FourPatient.DataAccess.Entities
 {
     public partial class Accommodation
     {
-        public Accommodation()
-        {
-            Reviews = new HashSet<Review>();
-        }
-
         // Primitive properties
         // Data type? = Nullable
         public int Id { get; set; }
-        public int? Checkin { get; set; }
+        public int? CheckIn { get; set; }
         public int? Discharge { get; set; }
         public int? Equipment { get; set; }
         public int? Policy { get; set; }
@@ -30,7 +25,7 @@ namespace FourPatient.DataAccess.Entities
         public int? Parking { get; set; }
         public decimal? AverageA { get; set; }
 
-        // List property of associated objects
-        public virtual ICollection<Review> Reviews { get; set; }
+        // Object property
+        public virtual Review Review { get; set; }
     }
 }

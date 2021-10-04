@@ -30,13 +30,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Patient>> GetAll()
         {
-            return Ok(_patientrepo.GetAll().Select(p => Model(p)));
+            return Ok(_patientrepo.GetAll().Select(p => (Patient)Map.Model(p)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Patient> Get(int id)
         {
-            return Ok(Model(_patientrepo.Get(id)));
+            return Ok((Patient)Map.Model(_patientrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,7 +44,7 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _patientrepo.Create(Table(patient));
+                _patientrepo.Create((Domain.Tables.Patient)Map.Table(patient));
             }
             return Ok();
         }
@@ -56,7 +56,7 @@ namespace FourPatient.WebAPI.Controllers
             {
                 try
                 {
-                    _patientrepo.Update(Table(patient));
+                    _patientrepo.Update((Domain.Tables.Patient)Map.Table(patient));
                 }
                 catch (DbUpdateConcurrencyException)
                 {

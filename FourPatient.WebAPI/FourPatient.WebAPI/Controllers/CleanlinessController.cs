@@ -30,13 +30,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Cleanliness>> GetAll()
         {
-            return Ok(_cleanlinessrepo.GetAll().Select(p => Model(p)));
+            return Ok(_cleanlinessrepo.GetAll().Select(p => (Cleanliness)Map.Model(p)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Cleanliness> Get(int id)
         {
-            return Ok(Model(_cleanlinessrepo.Get(id)));
+            return Ok((Cleanliness)Map.Model(_cleanlinessrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,7 +44,7 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _cleanlinessrepo.Create(Table(survey));
+                _cleanlinessrepo.Create((Domain.Tables.Cleanliness)Map.Table(survey));
             }
             return Ok();
         }
@@ -56,7 +56,7 @@ namespace FourPatient.WebAPI.Controllers
             {
                 try
                 {
-                    _cleanlinessrepo.Update(Table(survey));
+                    _cleanlinessrepo.Update((Domain.Tables.Cleanliness)Map.Table(survey));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -79,27 +79,15 @@ namespace FourPatient.WebAPI.Controllers
 
         private static Cleanliness Model(Domain.Tables.Cleanliness n)
         {
-            return new Cleanliness
-            {
-                Id = n.Id,
-                WaitingRoom = n.WaitingRoom,
-                WardRoom = n.WardRoom,
-                Equipment = n.Equipment,
-                Bathroom = n.Bathroom,
-                AverageCl = n.AverageCl
-            };
+            Cleanliness N = (Cleanliness)Map.Model(n);
+            N.Review = (Models.Review)Map.Model(n.Review); ;
+            return N;
         }
         private static Domain.Tables.Cleanliness Table(Cleanliness n)
         {
-            return new Domain.Tables.Cleanliness
-            {
-                Id = n.Id,
-                WaitingRoom = n.WaitingRoom,
-                WardRoom = n.WardRoom,
-                Equipment = n.Equipment,
-                Bathroom = n.Bathroom,
-                AverageCl = n.AverageCl
-            };
+            Domain.Tables.Cleanliness N = (Domain.Tables.Cleanliness)Map.Table(n);
+            N.Review = (Domain.Tables.Review)Map.Table(n.Review);
+            return N;
         }
     }
 }

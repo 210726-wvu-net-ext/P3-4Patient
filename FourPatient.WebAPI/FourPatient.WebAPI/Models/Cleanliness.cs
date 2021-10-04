@@ -12,5 +12,6 @@ namespace FourPatient.WebAPI.Models
         public int? Equipment { get; set; }
         public int? Bathroom { get; set; }
         public decimal? AverageCl { get; set; }
+        public virtual Review Review { get; set; }
     }
 }

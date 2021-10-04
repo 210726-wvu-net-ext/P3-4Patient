@@ -1,94 +1,132 @@
-﻿using FourPatient.DataAccess.Entities;
-using FourPatient.Domain;
-using FourPatient.Domain.Tables;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FourPatient.DataAccess;
+using FourPatient.DataAccess.Entities;
+using FourPatient.Domain;
+using Nursing = FourPatient.Domain.Tables.Nursing;
+using Review = FourPatient.Domain.Tables.Review;
 
 // This Class hold access methods for data layer
-
 
 namespace FourPatient.DataAccess
 {
     public class NursingRepo : INursing
     {
         private readonly _4PatientContext _context;
+        private readonly IReview _reviewrepo;
 
-        public NursingRepo(_4PatientContext context)
+        public NursingRepo(_4PatientContext context, IReview reviewrepo)
         {
             context.Database.EnsureCreated();
             _context = context;
+            _reviewrepo = reviewrepo;
         }
-        private static Entities.Nursing Entity(Domain.Tables.Nursing n)
+        public IEnumerable<Nursing> GetAll()
         {
-            return new Entities.Nursing
+            ICollection<Entities.Nursing> List = _context.Nursings.ToList();
+            ICollection<Nursing> N = List.Select(n => (Nursing)Map.Table(n)).ToList();
+
+            foreach (var Nursing in N)
             {
-                Id = n.Id,
-                Attentiveness = n.Attentiveness,
-                Transparecy = n.Transparecy,
-                Knowledge = n.Knowledge,
-                Compassion = n.Compassion,
-                WaitTimes = n.WaitTimes,
-                AverageN = n.AverageN
+                //var r = _context.Nursings.Find(Nursing.Id);
+                //Nursing.Review = (Review)Map.Table(r.Review);
+                Nursing.Review = _reviewrepo.Get(Nursing.Id);
+                //Nursing.Review = (Review)Map.Table(_context.Reviews.Find(Nursing.Id));
             };
-        }
-        private static Domain.Tables.Nursing Table(Entities.Nursing n)
-        {
-            return new Domain.Tables.Nursing
-            {
-                Id = n.Id,
-                Attentiveness = n.Attentiveness,
-                Transparecy = n.Transparecy,
-                Knowledge = n.Knowledge,
-                Compassion = n.Compassion,
-                WaitTimes = n.WaitTimes,
-                AverageN = n.AverageN
-            };
+
+            return N;
         }
 
-        public IEnumerable<Domain.Tables.Nursing> GetAll()
+        public Nursing Get(int id)
         {
-            return _context.Nursing
-                .Select(n => Table(n))
-               .ToList();
+            // The DbSet .Find() method searches DB based on primary key value
+            var n = _context.Nursings.Find(id); // This Enumerable method also works .First(n => n.Id == id);
+            Nursing N = (Nursing)Map.Table(n);
+
+            N.Review = _reviewrepo.Get(N.Id);
+            //N.Review = (Review)Map.Table(_context.Reviews.Find(N.Id));
+
+            // This closes the DBContext entity tracker so the same entity can be queried again in the same unit of work
+            //_context.Entry(n).State = EntityState.Detached;
+
+            return N;
         }
 
-        public Domain.Tables.Nursing Get(int id)
+        public void Create(Nursing N)
         {
-            var n = _context.Nursing
-                .First(n => n.Id == id);
-            return Table(n);
-        }
+            // Recalculate average score
+            N.AverageN = Average(N);
 
-        public void Create(Domain.Tables.Nursing n)
-        {
-            // map to EF model
-            var entity = Entity(n);
+            // map to EF entity
+            var entity = (Entities.Nursing)Map.Entity(N);
 
-            _context.Nursing.Add(entity);
+            _context.Nursings.Add(entity);
 
             // write changes to DB
             _context.SaveChanges();
-        }
-        public void Update(Domain.Tables.Nursing N)
-        {
-            // query the DB
-            var entity = _context.Nursing.First(n => n.Id == N.Id);
 
-            entity = Entity(N);
+            _reviewrepo.Update(N.Review);
+        }
+        public void Update(Nursing N)
+        {
+            // Recalculate average score
+            N.AverageN = Average(N);
+
+            // map to EF entity
+            _context.Nursings.Update((Entities.Nursing)Map.Entity(N));
 
             // write changes to DB
             _context.SaveChanges();
+
+            _reviewrepo.Update(_reviewrepo.Get(N.Id));
         }
         public void Delete(int id)
         {
-            _context.Remove(_context.Nursing.First(n => n.Id == id));
+            _context.Remove(Get(id));
 
             // write changes to DB
             _context.SaveChanges();
         }
+        public decimal? Average(Nursing N)
+        {
+            int sum = 0;
+            int i = 0;
 
+            foreach (var prop in N.GetType().GetProperties())
+            {
+                //This selects all properties of type int? since all the survey questions are of type int?
+                //Additional survey questions can be added without updating this code
+                if (prop.PropertyType == typeof(int?))
+                {
+                    sum += (int?)prop.GetValue(N, null) ?? 0;
+                    i++;
+                }
+            }
+
+            if (i == 0)
+                return null;
+            else
+                return (decimal)sum / i;
+
+
+            //this is the hardcode method as backup
+
+            //sum += n.Attentiveness ?? 0;
+            //i += n.Attentiveness != null ? 1 : 0;
+
+            //sum += n.Transparecy ?? 0;
+            //if (n.Transparecy != null)
+            //    i++;
+
+            //sum += n.Knowledge ?? 0;
+            //i += n.Knowledge != null ? 1 : 0;
+
+            //sum += n.Compassion ?? 0;
+            //i += n.Compassion != null ? 1 : 0;
+
+            //sum += n.WaitTimes ?? 0;
+            //i += n.WaitTimes != null ? 1 : 0;
+
+        }
     }
 }

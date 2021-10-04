@@ -1,98 +1,102 @@
 ﻿using FourPatient.DataAccess.Entities;
 using FourPatient.Domain;
-using FourPatient.Domain.Tables;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Covid = FourPatient.Domain.Tables.Covid;
+using Review = FourPatient.Domain.Tables.Review;
 
 // This Class hold access methods for data layer
-
 
 namespace FourPatient.DataAccess
 {
     public class CovidRepo : ICovid
     {
         private readonly _4PatientContext _context;
+        private readonly IReview _reviewrepo;
 
-        public CovidRepo(_4PatientContext context)
+        public CovidRepo(_4PatientContext context, IReview reviewrepo)
         {
             context.Database.EnsureCreated();
             _context = context;
+            _reviewrepo = reviewrepo;
         }
-        private static Entities.Covid Entity(Domain.Tables.Covid n)
+        public IEnumerable<Covid> GetAll()
         {
-            return new Entities.Covid
+            ICollection<Entities.Covid> List = _context.Covids.ToList();
+            ICollection<Covid> N = List.Select(n => (Covid)Map.Table(n)).ToList();
+
+            foreach (var Covid in N)
             {
-                Id = n.Id,
-                WaitingRooms = n.WaitingRooms,
-                Protocols = n.Protocols,
-                Separation = n.Separation,
-                Safety = n.Safety,
-                Covid1 = n.Covid1,
-                Screening = n.Screening,
-                Treatement = n.Treatement,
-                AverageC = n.AverageC
+                Covid.Review = _reviewrepo.Get(Covid.Id);
+                //Covid.Review = (Review)Map.Table(_context.Reviews.Find(Covid.Id));
             };
-        }
-        private static Domain.Tables.Covid Table(Entities.Covid n)
-        {
-            return new Domain.Tables.Covid
-            {
-                Id = n.Id,
-                WaitingRooms = n.WaitingRooms,
-                Protocols = n.Protocols,
-                Separation = n.Separation,
-                Safety = n.Safety,
-                Covid1 = n.Covid1,
-                Screening = n.Screening,
-                Treatement = n.Treatement,
-                AverageC = n.AverageC
-            };
+
+            return N;
         }
 
-        public IEnumerable<Domain.Tables.Covid> GetAll()
+        public Covid Get(int id)
         {
-            return _context.Covid
-                .Select(n => Table(n))
-               .ToList();
+            // The DbSet .Find() method searches DB based on primary key value
+            var n = _context.Covids.Find(id); // This Enumerable method also works .First(n => n.Id == id);
+            Covid N = (Covid)Map.Table(n);
+
+            N.Review = _reviewrepo.Get(N.Id);
+            //N.Review = (Review)Map.Table(_context.Reviews.Find(N.Id));
+
+            return N;
         }
 
-        public Domain.Tables.Covid Get(int id)
+        public void Create(Covid N)
         {
-            var n = _context.Covid
-                .First(n => n.Id == id);
-            return Table(n);
-        }
+            // Recalculate average score
+            N.AverageC = Average(N);
 
-        public void Create(Domain.Tables.Covid c)
-        {
-            // map to EF model
-            var entity = Entity(c);
+            // map to EF entity
+            var entity = (Entities.Covid)Map.Entity(N);
 
-            _context.Covid.Add(entity);
+            _context.Covids.Add(entity);
 
             // write changes to DB
             _context.SaveChanges();
         }
-        public void Update(Domain.Tables.Covid c)
+        public void Update(Covid N)
         {
-            // query the DB
-            var entity = _context.Covid.First(n => n.Id == c.Id);
+            // Recalculate average score
+            N.AverageC = Average(N);
 
-            entity = Entity(c);
+            // map to EF entity
+            _context.Covids.Update((Entities.Covid)Map.Entity(N));
 
             // write changes to DB
             _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            _context.Remove(_context.Covid.First(n => n.Id == id));
+            _context.Remove(Get(id));
 
             // write changes to DB
             _context.SaveChanges();
         }
+        public decimal? Average(Covid N)
+        {
+            int sum = 0;
+            int i = 0;
 
+            foreach (var prop in N.GetType().GetProperties())
+            {
+                //This selects all properties of type int? since all the survey questions are of type int?
+                //Additional survey questions can be added without updating this code
+                if (prop.PropertyType == typeof(int?))
+                {
+                    sum += (int?)prop.GetValue(N, null) ?? 0;
+                    i++;
+                }
+            }
+
+            if (i == 0)
+                return null;
+            else
+                return (decimal)sum / i;
+        }
     }
 }

@@ -1,13 +1,11 @@
-﻿using FourPatient.DataAccess.Entities;
-using FourPatient.Domain;
-using FourPatient.Domain.Tables;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FourPatient.DataAccess.Entities;
+using FourPatient.Domain;
+using Accommodation = FourPatient.Domain.Tables.Accommodation;
+using Review = FourPatient.Domain.Tables.Review;
 
-// This class holds access methods for data layer
+// This Class hold access methods for data layer
 
 namespace FourPatient.DataAccess
 {
@@ -20,90 +18,84 @@ namespace FourPatient.DataAccess
             context.Database.EnsureCreated();
             _context = context;
         }
-
-        // Map tables to entities
-        private static Entities.Accommodation Entity(Domain.Tables.Accommodation n)
+        public IEnumerable<Accommodation> GetAll()
         {
-            return new Entities.Accommodation
+            ICollection<Entities.Accommodation> List = _context.Accommodations.ToList();
+            ICollection<Accommodation> N = List.Select(n => (Accommodation)Map.Table(n)).ToList();
+
+            foreach (var Accommodation in N)
             {
-                Id = n.Id,
-                Checkin = n.Checkin,
-                Discharge = n.Discharge,
-                Equipment = n.Equipment,
-                Policy = n.Policy,
-                Privacy = n.Privacy,
-                Room = n.Room,
-                FoodOptions = n.FoodOptions,
-                FoodQuality = n.FoodQuality,
-                DietOptions = n.DietOptions,
-                Accessibility = n.Accessibility,
-                Parking = n.Parking,
-                AverageA = n.AverageA
+                Accommodation.Review = (Review)Map.Table(_context.Reviews.Find(Accommodation.Id));
             };
+
+            return N;
         }
 
-        // Map entities to tables
-        private static Domain.Tables.Accommodation Table(Entities.Accommodation n)
+        public Accommodation Get(int id)
         {
-            return new Domain.Tables.Accommodation
-            {
-                Id = n.Id,
-                Checkin = n.Checkin,
-                Discharge = n.Discharge,
-                Equipment = n.Equipment,
-                Policy = n.Policy,
-                Privacy = n.Privacy,
-                Room = n.Room,
-                FoodOptions = n.FoodOptions,
-                FoodQuality = n.FoodQuality,
-                DietOptions = n.DietOptions,
-                Accessibility = n.Accessibility,
-                Parking = n.Parking,
-                AverageA = n.AverageA
-            };
+            // The DbSet .Find() method searches DB based on primary key value
+            var n = _context.Accommodations.Find(id); // This Enumerable method also works .First(n => n.Id == id);
+            Accommodation N = (Accommodation)Map.Table(n);
+
+            N.Review = (Review)Map.Table(_context.Reviews.Find(N.Id));
+
+            // This closes the DBContext entity tracker so the same entity can be queried again in the same unit of work
+            //_context.Entry(n).State = EntityState.Detached;
+
+            return N;
         }
 
-        public IEnumerable<Domain.Tables.Accommodation> GetAll()
+        public void Create(Accommodation N)
         {
-            return _context.Accommodation
-                .Select(n => Table(n))
-               .ToList();
-        }
+            // Recalculate average score
+            N.AverageA = Average(N);
 
-        public Domain.Tables.Accommodation Get(int id)
-        {
-            var n = _context.Accommodation
-                .First(n => n.Id == id);
-            return Table(n);
-        }
+            // map to EF entity
+            var entity = (Entities.Accommodation)Map.Entity(N);
 
-        public void Create(Domain.Tables.Accommodation a)
-        {
-            // map to EF model
-            var entity = Entity(a);
-
-            _context.Accommodation.Add(entity);
+            _context.Accommodations.Add(entity);
 
             // write changes to DB
             _context.SaveChanges();
         }
-        public void Update(Domain.Tables.Accommodation a)
+        public void Update(Accommodation N)
         {
-            // query the DB
-            var entity = _context.Accommodation.First(n => n.Id == a.Id);
+            // Recalculate average score
+            N.AverageA = Average(N);
 
-            entity = Entity(a);
+            // map to EF entity
+            _context.Accommodations.Update((Entities.Accommodation)Map.Entity(N));
 
             // write changes to DB
             _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            _context.Remove(_context.Accommodation.First(n => n.Id == id));
+            _context.Remove(Get(id));
 
             // write changes to DB
             _context.SaveChanges();
         }
+        public decimal? Average(Accommodation N)
+        {
+            int sum = 0;
+            int i = 0;
 
+            foreach (var prop in N.GetType().GetProperties())
+            {
+                //This selects all properties of type int? since all the survey questions are of type int?
+                //Additional survey questions can be added without updating this code
+                if (prop.PropertyType == typeof(int?))
+                {
+                    sum += (int?)prop.GetValue(N, null) ?? 0;
+                    i++;
+                }
+            }
+
+            if (i == 0)
+                return null;
+            else
+                return (decimal)sum / i;
+        }
     }
 }

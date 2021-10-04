@@ -9,11 +9,6 @@ namespace FourPatient.DataAccess.Entities
 {
     public partial class Cleanliness
     {
-        public Cleanliness()
-        {
-            Reviews = new HashSet<Review>();
-        }
-
         // Primitive properties
         // Data type? = Nullable
         public int Id { get; set; }
@@ -23,7 +18,7 @@ namespace FourPatient.DataAccess.Entities
         public int? Bathroom { get; set; }
         public decimal? AverageCl { get; set; }
 
-        // List property of associated objects
-        public virtual ICollection<Review> Reviews { get; set; }
+        // Objects property
+        public virtual Review Review { get; set; }
     }
 }

@@ -9,13 +9,8 @@ namespace FourPatient.Domain.Tables
 {
     public partial class Accommodation
     {
-        public Accommodation()
-        {
-            Reviews = new HashSet<Review>();
-        }
-
         public int Id { get; set; }
-        public int? Checkin { get; set; }
+        public int? CheckIn { get; set; }
         public int? Discharge { get; set; }
         public int? Equipment { get; set; }
         public int? Policy { get; set; }
@@ -28,6 +23,6 @@ namespace FourPatient.Domain.Tables
         public int? Parking { get; set; }
         public decimal? AverageA { get; set; }
 
-        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual Review Review { get; set; }
     }
 }

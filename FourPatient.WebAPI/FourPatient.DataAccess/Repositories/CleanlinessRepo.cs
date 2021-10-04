@@ -1,14 +1,11 @@
 ﻿using FourPatient.DataAccess.Entities;
 using FourPatient.Domain;
-using FourPatient.Domain.Tables;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Cleanliness = FourPatient.Domain.Tables.Cleanliness;
+using Review = FourPatient.Domain.Tables.Review;
 
 // This Class hold access methods for data layer
-
 
 namespace FourPatient.DataAccess
 {
@@ -21,72 +18,84 @@ namespace FourPatient.DataAccess
             context.Database.EnsureCreated();
             _context = context;
         }
-        private static Entities.Cleanliness Entity(Domain.Tables.Cleanliness n)
+        public IEnumerable<Cleanliness> GetAll()
         {
-            return new Entities.Cleanliness
+            ICollection<Entities.Cleanliness> List = _context.Cleanlinesses.ToList();
+            ICollection<Cleanliness> N = List.Select(n => (Cleanliness)Map.Table(n)).ToList();
+
+            foreach (var Cleanliness in N)
             {
-                Id = n.Id,
-                WaitingRoom = n.WaitingRoom,
-                WardRoom = n.WardRoom,
-                Equipment = n.Equipment,
-                Bathroom = n.Bathroom,
-                AverageCl = n.AverageCl
+                Cleanliness.Review = (Review)Map.Table(_context.Reviews.Find(Cleanliness.Id));
             };
-        }
-        private static Domain.Tables.Cleanliness Table(Entities.Cleanliness n)
-        {
-            return new Domain.Tables.Cleanliness
-            {
-                Id = n.Id,
-                WaitingRoom = n.WaitingRoom,
-                WardRoom = n.WardRoom,
-                Equipment = n.Equipment,
-                Bathroom = n.Bathroom,
-                AverageCl = n.AverageCl
-            };
+
+            return N;
         }
 
-        public IEnumerable<Domain.Tables.Cleanliness> GetAll()
+        public Cleanliness Get(int id)
         {
-            return _context.Cleanliness
-                .Select(n => Table(n))
-               .ToList();
+            // The DbSet .Find() method searches DB based on primary key value
+            var n = _context.Cleanlinesses.Find(id); // This Enumerable method also works .First(n => n.Id == id);
+            Cleanliness N = (Cleanliness)Map.Table(n);
+
+            N.Review = (Review)Map.Table(_context.Reviews.Find(N.Id));
+
+            // This closes the DBContext entity tracker so the same entity can be queried again in the same unit of work
+            //_context.Entry(n).State = EntityState.Detached;
+
+            return N;
         }
 
-        public Domain.Tables.Cleanliness Get(int id)
+        public void Create(Cleanliness N)
         {
-            var n = _context.Cleanliness
-                .First(n => n.Id == id);
-            return Table(n);
-        }
+            // Recalculate average score
+            N.AverageCl = Average(N);
 
-        public void Create(Domain.Tables.Cleanliness c)
-        {
-            // map to EF model
-            var entity = Entity(c);
+            // map to EF entity
+            var entity = (Entities.Cleanliness)Map.Entity(N);
 
-            _context.Cleanliness.Add(entity);
+            _context.Cleanlinesses.Add(entity);
 
             // write changes to DB
             _context.SaveChanges();
         }
-        public void Update(Domain.Tables.Cleanliness c)
+        public void Update(Cleanliness N)
         {
-            // query the DB
-            var entity = _context.Cleanliness.First(n => n.Id == c.Id);
+            // Recalculate average score
+            N.AverageCl = Average(N);
 
-            entity = Entity(c);
+            // map to EF entity
+            _context.Cleanlinesses.Update((Entities.Cleanliness)Map.Entity(N));
 
             // write changes to DB
             _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            _context.Remove(_context.Cleanliness.First(n => n.Id == id));
+            _context.Remove(Get(id));
 
             // write changes to DB
             _context.SaveChanges();
         }
+        public decimal? Average(Cleanliness N)
+        {
+            int sum = 0;
+            int i = 0;
 
+            foreach (var prop in N.GetType().GetProperties())
+            {
+                //This selects all properties of type int? since all the survey questions are of type int?
+                //Additional survey questions can be added without updating this code
+                if (prop.PropertyType == typeof(int?))
+                {
+                    sum += (int?)prop.GetValue(N, null) ?? 0;
+                    i++;
+                }
+            }
+
+            if (i == 0)
+                return null;
+            else
+                return (decimal)sum / i;
+        }
     }
 }

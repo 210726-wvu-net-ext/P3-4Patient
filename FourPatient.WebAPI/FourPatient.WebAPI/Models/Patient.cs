@@ -6,7 +6,10 @@ namespace FourPatient.WebAPI.Models
 {
     public class Patient
     {
-
+        public Patient()
+        {
+            Reviews = new HashSet<Review>();
+        }
         public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }

@@ -13,7 +13,8 @@ namespace FourPatient.WebAPI.Models
         public int? Safety { get; set; }
         public bool? Covid1 { get; set; }
         public int? Screening { get; set; }
-        public int? Treatement { get; set; }
+        public int? Treatment { get; set; }
         public decimal? AverageC { get; set; }
+        public virtual Review Review { get; set; }
     }
 }

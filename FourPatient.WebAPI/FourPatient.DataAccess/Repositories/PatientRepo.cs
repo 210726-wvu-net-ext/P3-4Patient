@@ -1,15 +1,11 @@
-﻿using FourPatient.DataAccess.Entities;
-using FourPatient.Domain;
-using FourPatient.Domain.Tables;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FourPatient.DataAccess.Entities;
+using FourPatient.Domain;
+using Patient = FourPatient.Domain.Tables.Patient;
+using Review = FourPatient.Domain.Tables.Review;
 
 // This Class hold access methods for data layer
-
 
 namespace FourPatient.DataAccess
 {
@@ -22,80 +18,59 @@ namespace FourPatient.DataAccess
             context.Database.EnsureCreated();
             _context = context;
         }
-        private static Entities.Patient Entity(Domain.Tables.Patient n)
+        public IEnumerable<Patient> GetAll()
         {
-            return new Entities.Patient
+            ICollection<Entities.Patient> List = _context.Patients.ToList();
+            ICollection<Patient> N = List.Select(n => (Patient)Map.Table(n)).ToList();
+
+            foreach (var Patient in N)
             {
-                Id = n.Id,
-                FirstName = n.FirstName,
-                LastName = n.LastName,
-                Password = n.Password,
-                Street = n.Street,
-                City = n.City,
-                State = n.State,
-                DoB = n.DoB,
-                Email = n.Email,
-                PhoneNumber = n.PhoneNumber,
-                ZipCode = n.ZipCode
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.PatientId == Patient.Id).ToList();
+                Patient.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
             };
-        }
-        private static Domain.Tables.Patient Table(Entities.Patient n)
-        {
-            return new Domain.Tables.Patient
-            {
-                Id = n.Id,
-                FirstName = n.FirstName,
-                LastName = n.LastName,
-                Password = n.Password,
-                Street = n.Street,
-                City = n.City,
-                State = n.State,
-                DoB = n.DoB,
-                Email = n.Email,
-                PhoneNumber = n.PhoneNumber,
-                ZipCode = n.ZipCode
-            };
-        }
-        // Get all the patients
-        public IEnumerable<Domain.Tables.Patient> GetAll()
-        {
-            return _context.Patients
-                .Select(n => Table(n))
-                .ToList();
+
+            return N;
         }
 
-        public Domain.Tables.Patient Get(int id)
+        public Patient Get(int id)
         {
-            var n = _context.Patients
-                .First(n => n.Id == id);
-            return Table(n);
+            // The DbSet .Find() method searches DB based on primary key value
+            var n = _context.Patients.Find(id); // This Enumerable method also works .First(n => n.Id == id);
+            Patient Patient = (Patient)Map.Table(n);
+
+            ICollection<Entities.Review> R = _context.Reviews.Where(x => x.PatientId == Patient.Id).ToList();
+            Patient.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+
+            // This closes the DBContext entity tracker so the same entity can be queried again in the same unit of work
+            //_context.Entry(n).State = EntityState.Detached;
+
+            return Patient;
         }
 
-        public void Create(Domain.Tables.Patient patient)
+        public void Create(Patient N)
         {
-            // map to EF model
-            _context.Patients.Add(Entity(patient));
+            // map to EF entity
+            var entity = (Entities.Patient)Map.Entity(N);
+
+            _context.Patients.Add(entity);
 
             // write changes to DB
             _context.SaveChanges();
         }
-        public void Update(Domain.Tables.Patient patient)
+        public void Update(Patient N)
         {
-            // query the DB
-            var entity = _context.Patients.First(n => n.Id == patient.Id);
-
-            entity = Entity(patient);
+            // map to EF entity
+            _context.Patients.Update((Entities.Patient)Map.Entity(N));
 
             // write changes to DB
             _context.SaveChanges();
         }
         public void Delete(int id)
         {
-            _context.Remove(_context.Patients.First(n => n.Id == id));
+            _context.Remove(Get(id));
 
             // write changes to DB
             _context.SaveChanges();
         }
-
     }
 }
