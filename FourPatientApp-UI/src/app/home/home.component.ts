@@ -8,10 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  user:string = 'bob';
-  httpOptions = {
-    headers: new HttpHeaders({'Access-Control-Allow-Origin': 'http://localhost:4200'})
-  };
+ 
   constructor(private http: HttpClient) { 
 
   }
