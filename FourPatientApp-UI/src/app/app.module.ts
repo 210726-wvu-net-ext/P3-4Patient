@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
 
+
 import { HospitalService } from './hospital.service';
 import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,11 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
+import { AuthService } from './auth.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +45,10 @@ import { MatIconModule } from '@angular/material/icon';
     RegisterComponent,
     AccountComponent,
     HospitalViewComponent,
+
     HospitalDetailsComponent,
    
-   
+
   ],
   imports: [
     HttpClientModule,
@@ -74,7 +81,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
 
   ],
-  providers: [HospitalService],
+
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
+    multi: true
+  },HospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

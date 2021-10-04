@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using FourPatient.Domain;
 using FourPatient.Domain.Tables;
 using FourPatient.WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
+
 using Patient = FourPatient.WebAPI.Models.Patient;
 
 namespace FourPatient.WebAPI.Controllers
