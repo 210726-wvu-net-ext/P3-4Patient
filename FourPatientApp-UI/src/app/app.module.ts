@@ -11,9 +11,24 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
-import { HerosectionComponent } from './herosection/herosection.component';
+
 
 import { HospitalService } from './hospital.service';
+import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSliderModule } from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+
+
+
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
@@ -30,7 +45,10 @@ import { AuthService } from './auth.service';
     RegisterComponent,
     AccountComponent,
     HospitalViewComponent,
-    HerosectionComponent
+
+    HospitalDetailsComponent,
+   
+
   ],
   imports: [
     HttpClientModule,
@@ -45,9 +63,22 @@ import { AuthService } from './auth.service';
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'hero', component: HerosectionComponent },
+      { path: 'details', component: HospitalDetailsComponent },
+  
    
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatStepperModule,   
+    MatIconModule,
+    MatBottomSheetModule, 
+    MatButtonModule,
+    MatButtonToggleModule,
+ 
+
+    MatChipsModule,
+    MatInputModule,
+    MatListModule,
 
   ],
 
@@ -59,3 +90,6 @@ import { AuthService } from './auth.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+  

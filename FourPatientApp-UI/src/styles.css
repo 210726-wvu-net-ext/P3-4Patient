@@ -4,3 +4,16 @@
 @import "tailwindcss/utilities";
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.example-full-width {
+    width: 70%;
+  }
+  .lastbutton{
+    
+      left: 80%;
+      position:absolute;
+  }
+  
