@@ -43,7 +43,7 @@ namespace FourPatient.DataAccess
                         ICollection<Entities.Review> R = new List<Entities.Review>();
                         foreach (var review in n.Reviews)
                         {
-                            R.Add(Table(review, searchDepth + 1));
+                            R.Add(Entity(review, searchDepth + 1));
                         }
                         N.Reviews = R;
                     }
@@ -99,9 +99,5 @@ namespace FourPatient.DataAccess
 
             return N;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> bfb91c8bacdb70641e8d4d6a261c1428cff01e7d
     }
 }

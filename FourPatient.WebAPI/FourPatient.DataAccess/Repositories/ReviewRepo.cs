@@ -26,7 +26,7 @@ namespace FourPatient.DataAccess
             context.Database.EnsureCreated();
             _context = context;
             //_patientrepo = patientrepo;
-            //_hospitalrepo = hospitalrepo;
+            _hospitalrepo = hospitalrepo;
         }
         public IEnumerable<Review> GetAll()
         {

@@ -83,6 +83,10 @@ namespace FourPatient.DataAccess
             decimal sumCl = 0;
             decimal sumC = 0;
             decimal sumN = 0;
+            int countA = 0;
+            int countC = 0;
+            int countCl = 0;
+            int countN = 0;
 
             ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == H.Id).ToList();
 
@@ -91,20 +95,47 @@ namespace FourPatient.DataAccess
                 sum += review.Comfort;
                 i++;
 
-                sumA += _context.Accommodations.Find(review.Id).AverageA ?? 0;
-                sumCl += _context.Cleanlinesses.Find(review.Id).AverageCl ?? 0;
-                sumC += _context.Covids.Find(review.Id).AverageC ?? 0; 
-                sumN += _context.Nursings.Find(review.Id).AverageN ?? 0;
+                Entities.Accommodation a = _context.Accommodations.Find(review.Id);
+                if (a != null)
+                {
+                    sumA += a.AverageA ?? 0;
+                    countA++;
+                }
+
+                Entities.Cleanliness cl = _context.Cleanlinesses.Find(review.Id);
+                if (cl != null)
+                {
+                    sumCl += cl.AverageCl ?? 0;
+                    countCl++;
+                }
+
+                Entities.Covid c = _context.Covids.Find(review.Id);
+                if (c != null)
+                {
+                    sumC += c.AverageC ?? 0;
+                    countC++;
+                }
+
+                Entities.Nursing n = _context.Nursings.Find(review.Id);
+                if (n != null)
+                {
+                    sumN += n.AverageN ?? 0;
+                    countN++;
+                }
             }
 
             if (i == 0)
                 return H;
 
             H.Comfort = (decimal)sum / i;
-            H.Accomodations = (decimal)sumA / i;
-            H.Cleanliness = (decimal)sumCl / i;
-            H.Covid = (decimal)sumC / i;
-            H.Nursing = (decimal)sumN / i;
+            if (countA != 0)
+                H.Accomodations = (decimal)sumA / countA;
+            if (countCl != 0)
+                H.Cleanliness = (decimal)sumCl / countCl;
+            if (countC != 0)
+                H.Covid = (decimal)sumC / countC;
+            if (countN != 0)
+                H.Nursing = (decimal)sumN / countN;
 
             return H;
         }
