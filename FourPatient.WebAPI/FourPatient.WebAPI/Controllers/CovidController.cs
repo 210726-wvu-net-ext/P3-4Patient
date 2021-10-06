@@ -30,13 +30,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Covid>> GetAll()
         {
-            return Ok(_covidrepo.GetAll().Select(p => Model(p)));
+            return Ok(_covidrepo.GetAll().Select(p => (Covid)Map.Model(p)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Covid> Get(int id)
         {
-            return Ok(Model(_covidrepo.Get(id)));
+            return Ok((Covid)Map.Model(_covidrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,19 +44,19 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _covidrepo.Create(Table(survey));
+                _covidrepo.Create((Domain.Tables.Covid)Map.Table(survey));
             }
             return Ok();
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public ActionResult Edit([FromBody] Covid survey)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _covidrepo.Update(Table(survey));
+                    _covidrepo.Update((Domain.Tables.Covid)Map.Table(survey));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -75,37 +75,6 @@ namespace FourPatient.WebAPI.Controllers
         {
             _covidrepo.Delete(id);
             return Ok();
-        }
-
-        private static Covid Model(Domain.Tables.Covid n)
-        {
-            return new Covid
-            {
-                Id = n.Id,
-                WaitingRooms = n.WaitingRooms,
-                Protocols = n.Protocols,
-                Separation = n.Separation,
-                Safety = n.Safety,
-                Covid1 = n.Covid1,
-                Screening = n.Screening,
-                Treatement = n.Treatement,
-                AverageC = n.AverageC
-            };
-        }
-        private static Domain.Tables.Covid Table(Covid n)
-        {
-            return new Domain.Tables.Covid
-            {
-                Id = n.Id,
-                WaitingRooms = n.WaitingRooms,
-                Protocols = n.Protocols,
-                Separation = n.Separation,
-                Safety = n.Safety,
-                Covid1 = n.Covid1,
-                Screening = n.Screening,
-                Treatement = n.Treatement,
-                AverageC = n.AverageC
-            };
         }
     }
 }

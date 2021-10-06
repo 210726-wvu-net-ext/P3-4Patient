@@ -30,13 +30,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Nursing>> GetAll()
         {
-            return Ok(_nursingrepo.GetAll().Select(p => Model(p)));
+            return Ok(_nursingrepo.GetAll().Select(p => (Nursing)Map.Model(p)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Nursing> Get(int id)
         {
-            return Ok(Model(_nursingrepo.Get(id)));
+            return Ok((Nursing)Map.Model(_nursingrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,19 +44,19 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _nursingrepo.Create(Table(survey));
+                _nursingrepo.Create((Domain.Tables.Nursing)Map.Table(survey));
             }
             return Ok();
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public ActionResult Edit([FromBody] Nursing survey)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _nursingrepo.Update(Table(survey));
+                    _nursingrepo.Update((Domain.Tables.Nursing)Map.Table(survey));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -75,33 +75,6 @@ namespace FourPatient.WebAPI.Controllers
         {
             _nursingrepo.Delete(id);
             return Ok();
-        }
-
-        private static Nursing Model(Domain.Tables.Nursing n)
-        {
-            return new Nursing
-            {
-                Id = n.Id,
-                Attentiveness = n.Attentiveness,
-                Transparecy = n.Transparecy,
-                Knowledge = n.Knowledge,
-                Compassion = n.Compassion,
-                WaitTimes = n.WaitTimes,
-                AverageN = n.AverageN
-            };
-        }
-        private static Domain.Tables.Nursing Table(Nursing n)
-        {
-            return new Domain.Tables.Nursing
-            {
-                Id = n.Id,
-                Attentiveness = n.Attentiveness,
-                Transparecy = n.Transparecy,
-                Knowledge = n.Knowledge,
-                Compassion = n.Compassion,
-                WaitTimes = n.WaitTimes,
-                AverageN = n.AverageN
-            };
         }
     }
 }

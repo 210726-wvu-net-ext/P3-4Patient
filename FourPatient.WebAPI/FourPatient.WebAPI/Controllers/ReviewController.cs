@@ -30,13 +30,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Review>> GetAll()
         {
-            return Ok(_reviewrepo.GetAll().Select(n => Model(n)));
+            return Ok(_reviewrepo.GetAll().Select(n => (Review)Map.Model(n)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Review> Get(int id)
         {
-            return Ok(Model(_reviewrepo.Get(id)));
+            return Ok((Review)Map.Model(_reviewrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,19 +44,19 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _reviewrepo.Create(Table(review));
+                _reviewrepo.Create((Domain.Tables.Review)Map.Table(review));
             }
             return Ok();
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public ActionResult Edit([FromBody] Review review)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _reviewrepo.Update(Table(review));
+                    _reviewrepo.Update((Domain.Tables.Review)Map.Table(review));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -75,39 +75,6 @@ namespace FourPatient.WebAPI.Controllers
         {
             _reviewrepo.Delete(id);
             return Ok();
-        }
-
-        private static Review Model(Domain.Tables.Review n)
-        {
-            return new Review
-            {
-                Id = n.Id,
-                PatientId = n.PatientId,
-                Comfort = n.Comfort,
-                DatePosted = n.DatePosted,
-                Message = n.Message,
-                Hospitalid = n.Hospitalid,
-                AccommodationId = n.AccommodationId,
-                NursingId = n.NursingId,
-                CovidId = n.CovidId,
-                CleanlinessId = n.CleanlinessId
-            };
-        }
-        private static Domain.Tables.Review Table(Review n)
-        {
-            return new Domain.Tables.Review
-            {
-                Id = n.Id,
-                PatientId = n.PatientId,
-                Comfort = n.Comfort,
-                DatePosted = n.DatePosted,
-                Message = n.Message,
-                Hospitalid = n.Hospitalid,
-                AccommodationId = n.AccommodationId,
-                NursingId = n.NursingId,
-                CovidId = n.CovidId,
-                CleanlinessId = n.CleanlinessId
-            };
         }
     }
 }

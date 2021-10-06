@@ -3,17 +3,16 @@ using System.Collections.Generic;
 
 #nullable disable
 
+// Hold data layer objects, either from Business layer or SQL Server
+
 namespace FourPatient.DataAccess.Entities
 {
     public partial class Accommodation
     {
-        public Accommodation()
-        {
-            Reviews = new HashSet<Review>();
-        }
-
+        // Primitive properties
+        // Data type? = Nullable
         public int Id { get; set; }
-        public int? Checkin { get; set; }
+        public int? CheckIn { get; set; }
         public int? Discharge { get; set; }
         public int? Equipment { get; set; }
         public int? Policy { get; set; }
@@ -26,6 +25,7 @@ namespace FourPatient.DataAccess.Entities
         public int? Parking { get; set; }
         public decimal? AverageA { get; set; }
 
-        public virtual ICollection<Review> Reviews { get; set; }
+        // Object property
+        public virtual Review Review { get; set; }
     }
 }
