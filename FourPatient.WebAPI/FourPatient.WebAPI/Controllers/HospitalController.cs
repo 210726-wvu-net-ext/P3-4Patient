@@ -30,13 +30,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Hospital>> GetAll()
         {
-            return Ok(_hospitalrepo.GetAll().Select(n => Model(n)));
+            return Ok(_hospitalrepo.GetAll().Select(n => (Hospital)Map.Model(n)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Hospital> Get(int id)
         {
-            return Ok(Model(_hospitalrepo.Get(id)));
+            return Ok((Hospital)Map.Model(_hospitalrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,19 +44,19 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _hospitalrepo.Create(Table(n));
+                _hospitalrepo.Create((Domain.Tables.Hospital)Map.Table(n));
             }
             return Ok();
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public ActionResult Edit([FromBody] Hospital n)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _hospitalrepo.Update(Table(n));
+                    _hospitalrepo.Update((Domain.Tables.Hospital)Map.Table(n));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -75,45 +75,6 @@ namespace FourPatient.WebAPI.Controllers
         {
             _hospitalrepo.Delete(id);
             return Ok();
-        }
-
-        private static Hospital Model(Domain.Tables.Hospital n)
-        {
-            return new Hospital
-            {
-                Id = n.Id,
-                Name = n.Name,
-                Address = n.Address,
-                City = n.City,
-                State = n.State,
-                ZipCode = n.ZipCode,
-                Comfort = n.Comfort,
-                Nursing = n.Nursing,
-                Accomodations = n.Accomodations,
-                Cleanliness = n.Cleanliness,
-                Covid = n.Covid,
-                Description = n.Description,
-                Departments = n.Departments
-            };
-        }
-        private static Domain.Tables.Hospital Table(Hospital n)
-        {
-            return new Domain.Tables.Hospital
-            {
-                Id = n.Id,
-                Name = n.Name,
-                Address = n.Address,
-                City = n.City,
-                State = n.State,
-                ZipCode = n.ZipCode,
-                Comfort = n.Comfort,
-                Nursing = n.Nursing,
-                Accomodations = n.Accomodations,
-                Cleanliness = n.Cleanliness,
-                Covid = n.Covid,
-                Description = n.Description,
-                Departments = n.Departments
-            };
         }
     }
 }
