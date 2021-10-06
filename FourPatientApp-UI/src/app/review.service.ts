@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Hospital } from './interfaces/hospital';
+import { Review } from './interfaces/review';
 
 
 @Injectable({
     providedIn: 'root'
   })
 
-  export class HospitalService {
+  export class ReviewService {
     readonly APIUrl="https://localhost:44347/api";
   
     constructor(private https:HttpClient) { }
 
-    ListHospital():Observable<Hospital[]>{
-      return this.https.get<Hospital[]>(this.APIUrl+'/Hospital');
-    }
+    // ListRe():Observable<Hospital[]>{
+     //  return this.https.get<Hospital[]>(this.APIUrl+'/Hospital');
+    // }
 
-    GetHospitalbyId(id : number){
+    GetReviewbyId(id : number){
       
-      return this.https.get<Hospital>(this.APIUrl+'/Hospital/'+ id)
+      return this.https.get<Review>(this.APIUrl+'/Review/'+ id)
     }
   }

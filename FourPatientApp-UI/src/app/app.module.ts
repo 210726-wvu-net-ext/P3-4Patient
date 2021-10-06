@@ -33,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
 import { AuthService } from './auth.service';
+import { ReviewViewComponent } from './review-view/review-view.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { AuthService } from './auth.service';
     HospitalViewComponent,
 
     HospitalDetailsComponent,
+      ReviewViewComponent,
    
 
   ],
@@ -63,7 +65,8 @@ import { AuthService } from './auth.service';
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'details', component: HospitalDetailsComponent },
+      {path: 'details/:id', component: HospitalDetailsComponent},
+     
   
    
     ]),
@@ -82,11 +85,11 @@ import { AuthService } from './auth.service';
 
   ],
 
-  providers: [{
+  providers: [/*{
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,
     multi: true
-  },HospitalService],
+  },*/HospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
