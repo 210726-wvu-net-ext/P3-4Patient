@@ -18,7 +18,7 @@ namespace FourPatient.DataAccess.Entities
         public string Message { get; set; }
         public int HospitalId { get; set; }
 
-        //Object properties
+        // Object properties
         public virtual Accommodation? Accommodation { get; set; }
         public virtual Cleanliness? Cleanliness { get; set; }
         public virtual Nursing? Nursing { get; set; }

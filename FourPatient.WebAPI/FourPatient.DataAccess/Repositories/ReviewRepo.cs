@@ -105,6 +105,8 @@ namespace FourPatient.DataAccess
 
             // write changes to DB
             _context.SaveChanges();
+
+            _hospitalrepo.Update(_hospitalrepo.Get(Review.HospitalId));
         }
         public void Delete(int id)
         {
