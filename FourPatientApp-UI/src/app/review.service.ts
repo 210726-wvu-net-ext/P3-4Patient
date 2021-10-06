@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Review } from './interfaces/review';
+import { Cleanliness } from './interfaces/cleanliness';
 
 
 @Injectable({
@@ -16,6 +17,14 @@ import { Review } from './interfaces/review';
     // ListRe():Observable<Hospital[]>{
      //  return this.https.get<Hospital[]>(this.APIUrl+'/Hospital');
     // }
+    ListCleanliness():Observable<Cleanliness[]>{
+        return this.https.get<Cleanliness[]>(this.APIUrl+'/Cleanliness');
+    }
+
+    AddCleanliness(cleanliness : Cleanliness) : Observable<Cleanliness>{
+        return this.https.post<Cleanliness>(this.APIUrl+'/Cleanliness/Create',cleanliness)
+
+    }
 
     GetReviewbyId(id : number){
       
