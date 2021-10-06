@@ -11,15 +11,38 @@ import { ReviewService } from '../review.service';
 export class CreateReviewComponent implements OnInit {
 
   // cleanlinessForm : FormGroup;
+  reviewForm = new FormGroup({
+    id: new FormControl(0),
+    comfort: new FormControl(4.43),
+    datePosted: new FormControl(null),
+    message: new FormControl('This hospital was not P3rfect 12'),
+    hospitalid: new FormControl(2),
+    patientid: new FormControl(1)
+  });
+
+  get reviewid(){
+    return this.reviewForm.get('id') as FormGroup;
+  };
 
   cleanlinessForm = new FormGroup({
-    waitingroom: new FormControl(null),
-    wardroom: new FormControl(null),
-    equipment: new FormControl(null),
-    bathroom: new FormControl(null),
-    averageci: new FormControl(4),
+    id: new FormControl(12),
+    waitingroom: new FormControl(''),
+    wardroom: new FormControl(''),
+    equipment: new FormControl(''),
+    bathroom: new FormControl(''),
+    averageci: new FormControl('')
   });
-  
+
+  nursingForm = new FormGroup({
+    id: new FormControl(12),
+    attentiveness: new FormControl(''),
+    transparency: new FormControl(''),
+    knowledge: new FormControl(''),
+    compassion: new FormControl(''),
+    waitTimes: new FormControl(''),
+    averageN: new FormControl('')
+  });
+
   constructor(private reviewservice : ReviewService) { }
   // , private formBuilder: FormBuilder
 
@@ -32,14 +55,40 @@ export class CreateReviewComponent implements OnInit {
     //    bathroom: [''],
     //    averageci: [''],
     //    });
+
     
   }
+  addReview(){
+    this.reviewservice.AddReview(this.reviewForm .value).subscribe(
+      res => {
+        alert("Review has been created");
+      }
+    );
+  }
 
-  onSubmit(){
+  addCleanliness(){
     this.reviewservice.AddCleanliness(this.cleanlinessForm.value).subscribe(
       res => {
         alert("Cleanliness survey has been added");
       }
     );
+  }
+
+  addNursing(){
+    this.reviewservice.AddNursing(this.nursingForm .value).subscribe(
+      res => {
+        alert("Nursey survey has been added");
+      }
+    );
+  }
+  
+addCovid(){
+
+}
+
+  addTotal(){
+    // this.addReview();
+    // this.addCleanliness();
+    this.addNursing();
   }
 }
