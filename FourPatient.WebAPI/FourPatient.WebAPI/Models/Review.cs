@@ -6,22 +6,22 @@ namespace FourPatient.WebAPI.Models
 {
     public class Review
     {
+        [Required]
         public int Id { get; set; }
-        public int PatientId { get; set; }
+        [Required]
         public decimal Comfort { get; set; }
         public DateTime? DatePosted { get; set; }
         public string Message { get; set; }
-        public int Hospitalid { get; set; }
-        public int? AccommodationId { get; set; }
-        public int? NursingId { get; set; }
-        public int? CovidId { get; set; }
-        public int? CleanlinessId { get; set; }
+        [Required]
+        public int HospitalId { get; set; }
+        [Required]
+        public int PatientId { get; set; }
 
-        public virtual Accommodation Accommodation { get; set; }
-        public virtual Cleanliness Cleanliness { get; set; }
-        public virtual Covid Covid { get; set; }
-        public virtual Hospital Hospital { get; set; }
+        public virtual Accommodation? Accommodation { get; set; }
+        public virtual Cleanliness? Cleanliness { get; set; }
+        public virtual Covid? Covid { get; set; }
         public virtual Nursing Nursing { get; set; }
+        public virtual Hospital? Hospital { get; set; }
         public virtual Patient Patient { get; set; }
     }
 }

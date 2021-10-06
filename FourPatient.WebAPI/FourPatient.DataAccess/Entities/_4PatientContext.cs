@@ -17,11 +17,11 @@ namespace FourPatient.DataAccess.Entities
         {
         }
 
-        public virtual DbSet<Accommodation> Accommodation { get; set; }
-        public virtual DbSet<Cleanliness> Cleanliness { get; set; }
-        public virtual DbSet<Covid> Covid { get; set; }
+        public virtual DbSet<Accommodation> Accommodations { get; set; }
+        public virtual DbSet<Cleanliness> Cleanlinesses { get; set; }
+        public virtual DbSet<Covid> Covids { get; set; }
         public virtual DbSet<Hospital> Hospitals { get; set; }
-        public virtual DbSet<Nursing> Nursing { get; set; }
+        public virtual DbSet<Nursing> Nursings { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
 
@@ -33,23 +33,44 @@ namespace FourPatient.DataAccess.Entities
             {
                 entity.ToTable("Accommodation");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AverageA).HasColumnType("decimal(3, 2)");
+
+                entity.HasOne(d => d.Review)
+                    .WithOne(p => p.Accommodation)
+                    .HasForeignKey<Accommodation>(d => d.Id)
+                    .HasConstraintName("FK_accommodation");
             });
 
             modelBuilder.Entity<Cleanliness>(entity =>
             {
                 entity.ToTable("Cleanliness");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AverageCl).HasColumnType("decimal(3, 2)");
+
+                entity.HasOne(d => d.Review)
+                    .WithOne(p => p.Cleanliness)
+                    .HasForeignKey<Cleanliness>(d => d.Id)
+                    .HasConstraintName("FK_cleanliness");
             });
 
             modelBuilder.Entity<Covid>(entity =>
             {
                 entity.ToTable("Covid");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AverageC).HasColumnType("decimal(3, 2)");
 
                 entity.Property(e => e.Covid1).HasColumnName("COVID");
+
+                entity.HasOne(d => d.Review)
+                    .WithOne(p => p.Covid)
+                    .HasForeignKey<Covid>(d => d.Id)
+                    .HasConstraintName("FK_covid");
             });
 
             modelBuilder.Entity<Hospital>(entity =>
@@ -101,14 +122,21 @@ namespace FourPatient.DataAccess.Entities
             {
                 entity.ToTable("Nursing");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AverageN).HasColumnType("decimal(3, 2)");
+
+                entity.HasOne(d => d.Review)
+                    .WithOne(p => p.Nursing)
+                    .HasForeignKey<Nursing>(d => d.Id)
+                    .HasConstraintName("FK_nursing");
             });
 
             modelBuilder.Entity<Patient>(entity =>
             {
                 entity.ToTable("Patient");
 
-                entity.HasIndex(e => e.Email, "UQ__Patient__A9D1053470DDEB3B")
+                entity.HasIndex(e => e.Email, "UQ__Patient__A9D10534BB85883E")
                     .IsUnique();
 
                 entity.Property(e => e.City)
@@ -163,39 +191,15 @@ namespace FourPatient.DataAccess.Entities
                     .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Accommodation)
-                    .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.AccommodationId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK__Review__Accommod__489AC854");
-
-                entity.HasOne(d => d.Cleanliness)
-                    .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.CleanlinessId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK__Review__Cleanlin__4B7734FF");
-
-                entity.HasOne(d => d.Covid)
-                    .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.CovidId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK__Review__CovidId__4A8310C6");
-
                 entity.HasOne(d => d.Hospital)
                     .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.Hospitalid)
-                    .HasConstraintName("FK__Review__Hospital__47A6A41B");
-
-                entity.HasOne(d => d.Nursing)
-                    .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.NursingId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK__Review__NursingI__498EEC8D");
+                    .HasForeignKey(d => d.HospitalId)
+                    .HasConstraintName("FK__Review__Hospital__540C7B00");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.PatientId)
-                    .HasConstraintName("FK__Review__PatientI__46B27FE2");
+                    .HasConstraintName("FK__Review__PatientI__531856C7");
             });
 
             OnModelCreatingPartial(modelBuilder);

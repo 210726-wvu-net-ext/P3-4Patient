@@ -12,6 +12,8 @@ using FourPatient.Domain.Tables;
 using FourPatient.WebAPI.Models;
 using Accommodation = FourPatient.WebAPI.Models.Accommodation;
 
+// This class holds exposed API endpoints
+
 namespace FourPatient.WebAPI.Controllers
 {
     [ApiController]
@@ -30,13 +32,13 @@ namespace FourPatient.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Accommodation>> GetAll()
         {
-            return Ok(_accommodationrepo.GetAll().Select(p => Model(p)));
+            return Ok(_accommodationrepo.GetAll().Select(p => (Accommodation)Map.Model(p)));
         }
 
         [HttpGet("{id}")]
         public ActionResult<Accommodation> Get(int id)
         {
-            return Ok(Model(_accommodationrepo.Get(id)));
+            return Ok((Accommodation)Map.Model(_accommodationrepo.Get(id)));
         }
 
         [HttpPost("Create")]
@@ -44,19 +46,19 @@ namespace FourPatient.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _accommodationrepo.Create(Table(survey));
+                _accommodationrepo.Create((Domain.Tables.Accommodation)Map.Table(survey));
             }
             return Ok();
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public ActionResult Edit([FromBody] Accommodation survey)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _accommodationrepo.Update(Table(survey));
+                    _accommodationrepo.Update((Domain.Tables.Accommodation)Map.Table(survey));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -75,45 +77,6 @@ namespace FourPatient.WebAPI.Controllers
         {
             _accommodationrepo.Delete(id);
             return Ok();
-        }
-
-        private static Accommodation Model(Domain.Tables.Accommodation n)
-        {
-            return new Accommodation
-            {
-                Id = n.Id,
-                Checkin = n.Checkin,
-                Discharge = n.Discharge,
-                Equipment = n.Equipment,
-                Policy = n.Policy,
-                Privacy = n.Privacy,
-                Room = n.Room,
-                FoodOptions = n.FoodOptions,
-                FoodQuality = n.FoodQuality,
-                DietOptions = n.DietOptions,
-                Accessibility = n.Accessibility,
-                Parking = n.Parking,
-                AverageA = n.AverageA
-            };
-        }
-        private static Domain.Tables.Accommodation Table(Accommodation n)
-        {
-            return new Domain.Tables.Accommodation
-            {
-                Id = n.Id,
-                Checkin = n.Checkin,
-                Discharge = n.Discharge,
-                Equipment = n.Equipment,
-                Policy = n.Policy,
-                Privacy = n.Privacy,
-                Room = n.Room,
-                FoodOptions = n.FoodOptions,
-                FoodQuality = n.FoodQuality,
-                DietOptions = n.DietOptions,
-                Accessibility = n.Accessibility,
-                Parking = n.Parking,
-                AverageA = n.AverageA
-            };
         }
     }
 }
