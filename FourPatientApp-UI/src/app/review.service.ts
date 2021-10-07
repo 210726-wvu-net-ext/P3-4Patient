@@ -30,8 +30,8 @@ import { Accommodation } from './interfaces/accommodation';
       
     }
 
-    AddReview(review : Review): Observable<Review>{
-      return this.https.post<Review>(this.APIUrl+'/Review/Create',review)
+    AddReview(review : Review): Observable<number>{
+      return this.https.post<number>(this.APIUrl+'/Review/Create',review)
   }
 
     AddCleanliness(cleanliness : Cleanliness) : Observable<Cleanliness>{

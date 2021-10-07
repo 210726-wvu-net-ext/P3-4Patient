@@ -11,7 +11,6 @@ import { ReviewService } from '../review.service';
 export class CreateReviewComponent implements OnInit {
 
 
-  reviewid = 0;
   // hospitals: Hospital[] | null = null;
 
   // cleanlinessForm : FormGroup;
@@ -31,14 +30,14 @@ export class CreateReviewComponent implements OnInit {
 
 
   cleanlinessForm = new FormGroup({
-    id: new FormControl(this.reviewid),
+    id: new FormControl(''),
     waitingroom: new FormControl(''),
     wardroom: new FormControl(''),
     equipment: new FormControl(''),
     bathroom: new FormControl(''),
     averageci: new FormControl('')
   });
-
+  
   nursingForm = new FormGroup({
     id: new FormControl(14),
     attentiveness: new FormControl(''),
@@ -82,25 +81,29 @@ export class CreateReviewComponent implements OnInit {
   // , private formBuilder: FormBuilder
 
   ngOnInit():void  {
-    
+    this.addReview();
 
     
   }
-  addReview(){
+   addReview(){
     this.reviewservice.AddReview(this.reviewForm .value).subscribe(
       res => {
+        console.log(res);
+        this.cleanlinessForm.patchValue({
+          id: res
+        });
+        this.nursingForm.patchValue({
+          id: res
+        });
+        this.covidForm.patchValue({
+          id: res
+        });
+        this.accommodationForm.patchValue({
+          id: res
+        });
         alert("Review has been created");
       }
     );
-  }
-
-  getLatestReviewId(){
-    this.reviewservice.GetLatestId().subscribe(
-      res => {
-        alert("id was found");
-      }
-    );
-    
   }
 
   addCleanliness(){
@@ -137,14 +140,9 @@ addAccommodation(){
 }
 
   addTotal(){
-
-    this.addReview();
-
-    // this.reviewid = this.getLatestReviewId();
-    
     this.addCleanliness();
-    // this.addNursing();
-    // this.addCovid();
-    // this.addAccommodation();
+    this.addNursing();
+    this.addCovid();
+    this.addAccommodation();
   }
 }

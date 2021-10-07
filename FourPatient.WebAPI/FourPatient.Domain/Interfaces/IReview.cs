@@ -11,7 +11,7 @@ namespace FourPatient.Domain
     {
         IEnumerable<Review> GetAll();
         Review Get(int id);
-        void Create(Review review);
+        int Create(Review review);
         void Update(Review review);
         void Delete(int id);
     }
