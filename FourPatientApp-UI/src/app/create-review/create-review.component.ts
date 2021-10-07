@@ -10,9 +10,13 @@ import { ReviewService } from '../review.service';
 })
 export class CreateReviewComponent implements OnInit {
 
+
+  reviewid = 0;
+  // hospitals: Hospital[] | null = null;
+
   // cleanlinessForm : FormGroup;
   reviewForm = new FormGroup({
-    id: new FormControl(0),
+    // id: new FormControl(0),
     comfort: new FormControl(4.43),
     datePosted: new FormControl(null),
     message: new FormControl('This hospital was not P3rfect 12'),
@@ -20,12 +24,14 @@ export class CreateReviewComponent implements OnInit {
     patientid: new FormControl(1)
   });
 
-  get reviewid(){
-    return this.reviewForm.get('id') as FormGroup;
-  };
+  // get reviewid(){
+  //   return this.reviewForm.get('id') as FormControl;
+  // };
+
+
 
   cleanlinessForm = new FormGroup({
-    id: new FormControl(12),
+    id: new FormControl(this.reviewid),
     waitingroom: new FormControl(''),
     wardroom: new FormControl(''),
     equipment: new FormControl(''),
@@ -56,7 +62,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
   accommodationForm = new FormGroup({
-    id: new FormControl(10),
+    id: new FormControl(11),
     checkIn: new FormControl(''),
     discharge: new FormControl(''),
     equipment: new FormControl(''),
@@ -76,14 +82,7 @@ export class CreateReviewComponent implements OnInit {
   // , private formBuilder: FormBuilder
 
   ngOnInit():void  {
-  
-    //  this.cleanlinessForm = this.formBuilder.group({
-    //    waitingroom: [''],
-    //    wardroom: [''],
-    //    equipment: [''],
-    //    bathroom: [''],
-    //    averageci: [''],
-    //    });
+    
 
     
   }
@@ -93,6 +92,15 @@ export class CreateReviewComponent implements OnInit {
         alert("Review has been created");
       }
     );
+  }
+
+  getLatestReviewId(){
+    this.reviewservice.GetLatestId().subscribe(
+      res => {
+        alert("id was found");
+      }
+    );
+    
   }
 
   addCleanliness(){
@@ -129,10 +137,14 @@ addAccommodation(){
 }
 
   addTotal(){
-    // this.addReview();
-    // this.addCleanliness();
+
+    this.addReview();
+
+    // this.reviewid = this.getLatestReviewId();
+    
+    this.addCleanliness();
     // this.addNursing();
     // this.addCovid();
-    this.addAccommodation();
+    // this.addAccommodation();
   }
 }

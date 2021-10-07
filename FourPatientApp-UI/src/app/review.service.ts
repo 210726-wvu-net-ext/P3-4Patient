@@ -24,6 +24,12 @@ import { Accommodation } from './interfaces/accommodation';
         return this.https.get<Cleanliness[]>(this.APIUrl+'/Cleanliness');
     }
 
+    GetLatestId() : Observable<Review>{
+      console.log(this.GetLatestId);
+      return this.https.get<Review>(this.APIUrl+'/Review/select');
+      
+    }
+
     AddReview(review : Review): Observable<Review>{
       return this.https.post<Review>(this.APIUrl+'/Review/Create',review)
   }
@@ -47,6 +53,7 @@ AddAccommodation(x : Accommodation) : Observable<Accommodation>{
   return this.https.post<Accommodation>(this.APIUrl+'/Accommodation/Create',x)
 
 }
+
 
 
     GetReviewbyId(id : number){

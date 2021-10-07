@@ -33,6 +33,18 @@ namespace FourPatient.WebAPI.Controllers
             return Ok(_reviewrepo.GetAll().Select(n => (Review)Map.Model(n)));
         }
 
+        [HttpGet("select")]
+        public ActionResult<int> GetLatestReviewId()
+        {
+            return Ok(_reviewrepo.GetAll().Select(n => (Review)Map.Model(n)).OrderBy(Review => Review.Id).Reverse().First().Id);
+
+            //var x = _reviewrepo.GetAll().OrderByDescending(n => (Review)Map.Model(n));
+            //return Ok(x);
+
+            //return Ok(_reviewrepo.GetAll().Last(n => (Review)Map.Model(n)));
+        }
+
+
         [HttpGet("{id}")]
         public ActionResult<Review> Get(int id)
         {
