@@ -33,6 +33,8 @@ namespace FourPatient.WebAPI.Controllers
             return Ok(_hospitalrepo.GetAll().Select(n => (Hospital)Map.Model(n)));
         }
 
+
+
         [HttpGet("{id}")]
         public ActionResult<Hospital> Get(int id)
         {

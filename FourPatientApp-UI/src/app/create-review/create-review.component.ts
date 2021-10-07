@@ -10,9 +10,12 @@ import { ReviewService } from '../review.service';
 })
 export class CreateReviewComponent implements OnInit {
 
+
+  // hospitals: Hospital[] | null = null;
+
   // cleanlinessForm : FormGroup;
   reviewForm = new FormGroup({
-    id: new FormControl(0),
+    // id: new FormControl(0),
     comfort: new FormControl(4.43),
     datePosted: new FormControl(null),
     message: new FormControl('This hospital was not P3rfect 12'),
@@ -20,19 +23,21 @@ export class CreateReviewComponent implements OnInit {
     patientid: new FormControl(1)
   });
 
-  get reviewid(){
-    return this.reviewForm.get('id') as FormGroup;
-  };
+  // get reviewid(){
+  //   return this.reviewForm.get('id') as FormControl;
+  // };
+
+
 
   cleanlinessForm = new FormGroup({
-    id: new FormControl(12),
+    id: new FormControl(''),
     waitingroom: new FormControl(''),
     wardroom: new FormControl(''),
     equipment: new FormControl(''),
     bathroom: new FormControl(''),
     averageci: new FormControl('')
   });
-
+  
   nursingForm = new FormGroup({
     id: new FormControl(14),
     attentiveness: new FormControl(''),
@@ -56,7 +61,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
   accommodationForm = new FormGroup({
-    id: new FormControl(10),
+    id: new FormControl(11),
     checkIn: new FormControl(''),
     discharge: new FormControl(''),
     equipment: new FormControl(''),
@@ -76,20 +81,26 @@ export class CreateReviewComponent implements OnInit {
   // , private formBuilder: FormBuilder
 
   ngOnInit():void  {
-  
-    //  this.cleanlinessForm = this.formBuilder.group({
-    //    waitingroom: [''],
-    //    wardroom: [''],
-    //    equipment: [''],
-    //    bathroom: [''],
-    //    averageci: [''],
-    //    });
+    this.addReview();
 
     
   }
-  addReview(){
+   addReview(){
     this.reviewservice.AddReview(this.reviewForm .value).subscribe(
       res => {
+        console.log(res);
+        this.cleanlinessForm.patchValue({
+          id: res
+        });
+        this.nursingForm.patchValue({
+          id: res
+        });
+        this.covidForm.patchValue({
+          id: res
+        });
+        this.accommodationForm.patchValue({
+          id: res
+        });
         alert("Review has been created");
       }
     );
@@ -129,10 +140,9 @@ addAccommodation(){
 }
 
   addTotal(){
-    // this.addReview();
-    // this.addCleanliness();
-    // this.addNursing();
-    // this.addCovid();
+    this.addCleanliness();
+    this.addNursing();
+    this.addCovid();
     this.addAccommodation();
   }
 }
