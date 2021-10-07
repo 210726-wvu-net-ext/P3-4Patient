@@ -1,10 +1,10 @@
 export interface Nursing{
     id: number,
-    attentivenesss: number,
+    attentiveness: number,
     transparency: number,
     knowledge: number,
     compassion: number,
-    waitTimes: boolean,
+    waitTimes: number,
     averageN: number
     
 }

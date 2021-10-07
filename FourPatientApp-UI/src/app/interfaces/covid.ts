@@ -1,12 +1,12 @@
 export interface Covid{
     id: number,
-    waitingrooms: number,
+    waitingRooms: number,
     protocols: number,
     separation: number,
     safety: number,
     covid1: boolean,
     screening: number,
     treatment: number,
-    averagec: number
+    averageC: number
    
 }

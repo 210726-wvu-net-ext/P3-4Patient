@@ -34,7 +34,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
   nursingForm = new FormGroup({
-    id: new FormControl(12),
+    id: new FormControl(14),
     attentiveness: new FormControl(''),
     transparency: new FormControl(''),
     knowledge: new FormControl(''),
@@ -42,6 +42,35 @@ export class CreateReviewComponent implements OnInit {
     waitTimes: new FormControl(''),
     averageN: new FormControl('')
   });
+  
+  covidForm = new FormGroup({
+    id: new FormControl(10),
+    waitingRooms: new FormControl(''),
+    protocols: new FormControl(''),
+    separation: new FormControl(''),
+    safety: new FormControl(''),
+    covid1: new FormControl(''),
+    screening: new FormControl(''),
+    treatment: new FormControl(''),
+    averageC: new FormControl('')
+  });
+
+  accommodationForm = new FormGroup({
+    id: new FormControl(10),
+    checkIn: new FormControl(''),
+    discharge: new FormControl(''),
+    equipment: new FormControl(''),
+    policy: new FormControl(''),
+    privacy: new FormControl(''),
+    room: new FormControl(''),
+    foodOptions: new FormControl(''),
+    foodQuality: new FormControl(''),
+    dietOptions: new FormControl(''),
+    accessibility: new FormControl(''),
+    parking: new FormControl(''),
+    averageA: new FormControl('')
+  });
+
 
   constructor(private reviewservice : ReviewService) { }
   // , private formBuilder: FormBuilder
@@ -75,7 +104,7 @@ export class CreateReviewComponent implements OnInit {
   }
 
   addNursing(){
-    this.reviewservice.AddNursing(this.nursingForm .value).subscribe(
+    this.reviewservice.AddNursing(this.nursingForm.value).subscribe(
       res => {
         alert("Nursey survey has been added");
       }
@@ -83,12 +112,27 @@ export class CreateReviewComponent implements OnInit {
   }
   
 addCovid(){
+  this.reviewservice.AddCovid(this.covidForm.value).subscribe(
+    res => {
+      alert("Covid survey has been added");
+    }
+  );
+
+}
+addAccommodation(){
+  this.reviewservice.AddAccommodation(this.accommodationForm.value).subscribe(
+    res => {
+      alert("Accommodation survey has been added");
+    }
+  );
 
 }
 
   addTotal(){
     // this.addReview();
     // this.addCleanliness();
-    this.addNursing();
+    // this.addNursing();
+    // this.addCovid();
+    this.addAccommodation();
   }
 }

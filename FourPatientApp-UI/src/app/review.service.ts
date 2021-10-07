@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Review } from './interfaces/review';
 import { Cleanliness } from './interfaces/cleanliness';
 import { Nursing } from './interfaces/nursing';
+import { Covid } from './interfaces/covid';
+import { Accommodation } from './interfaces/accommodation';
 
 
 @Injectable({
@@ -35,6 +37,17 @@ import { Nursing } from './interfaces/nursing';
       return this.https.post<Nursing>(this.APIUrl+'/Nursing/Create',nursing)
 
   }
+
+  AddCovid(covid : Covid) : Observable<Covid>{
+    return this.https.post<Covid>(this.APIUrl+'/Covid/Create',covid)
+
+}
+
+AddAccommodation(x : Accommodation) : Observable<Accommodation>{
+  return this.https.post<Accommodation>(this.APIUrl+'/Accommodation/Create',x)
+
+}
+
 
     GetReviewbyId(id : number){
       
