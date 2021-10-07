@@ -61,7 +61,7 @@
           </div>
           <div class="mt-5 md:mt-0 md:col-span-2">
 
-            <form action="#" method="POST">
+            <form [formGroup]="accommodationForm">
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
 
@@ -75,35 +75,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="one" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="one" class="ml-3 block text-sm font-medium text-gray-700" >
+                        <input id="checkIn" formControlName="checkIn" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="checkIn" class="ml-3 block text-sm font-medium text-gray-700" >
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="one" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="one" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="checkIn" formControlName="checkIn" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="checkIn" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="one" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="one" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="checkIn" formControlName="checkIn" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="checkIn" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="one" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="one" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="checkIn" formControlName="checkIn" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="checkIn" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="one" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="one" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="checkIn" formControlName="checkIn" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="checkIn" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -120,35 +120,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="two" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="two" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="discharge" formControlName="discharge" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="discharge" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="two" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="two" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="discharge" formControlName="discharge" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="discharge" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="two" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="two" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="discharge" formControlName="discharge" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="discharge" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="two" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="two" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="discharge" formControlName="discharge" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="discharge" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="two" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="two" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="discharge" formControlName="discharge" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="discharge" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -165,35 +165,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="equipment" formControlName="equipment" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="equipment" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="equipment" formControlName="equipment" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="equipment" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="equipment" formControlName="equipment" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="equipment" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="equipment" formControlName="equipment" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="equipment" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="equipment" formControlName="equipment" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="equipment" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -210,35 +210,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="policy" formControlName="policy" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="policy" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="policy" formControlName="policy" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="policy" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="policy" formControlName="policy" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="policy" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="policy" formControlName="policy" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="policy" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="policy" formControlName="policy" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="policy" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -255,35 +255,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="privacy" formControlName="privacy" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="privacy" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="privacy" formControlName="privacy" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="privacy" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="privacy" formControlName="privacy" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="privacy" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="privacy" formControlName="privacy" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="privacy" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="privacy" formControlName="privacy" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="privacy" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -300,35 +300,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="room" formControlName="room" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="room" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="room" formControlName="room" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="room" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="room" formControlName="room" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="room" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="room" formControlName="room" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="room" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="room" formControlName="room" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="room" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -345,35 +345,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodOptions" formControlName="foodOptions" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodOptions" formControlName="foodOptions" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodOptions" formControlName="foodOptions" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodOptions" formControlName="foodOptions" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodOptions" formControlName="foodOptions" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -390,35 +390,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodQuality" formControlName="foodQuality" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodQuality" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodQuality" formControlName="foodQuality" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodQuality" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodQuality" formControlName="foodQuality" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodQuality" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodQuality" formControlName="foodQuality" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodQuality" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="foodQuality" formControlName="foodQuality" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="foodQuality" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -435,35 +435,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="dietOptions" formControlName="dietOptions" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="dietOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="dietOptions" formControlName="dietOptions" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="dietOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="dietOptions" formControlName="dietOptions" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="dietOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="dietOptions" formControlName="dietOptions" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="dietOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="dietOptions" formControlName="dietOptions" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="dietOptions" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -475,40 +475,38 @@
                       <legend class="text-base font-medium text-gray-900">Handicap Accessibility</legend>
                       <p class="text-sm text-gray-500">How satisfied were you with the handicap accommodations?</p>
                     </div>
-
-                    <div class="md:grid md:grid-cols-5 md:gap-6">
-                    
-                      
+                    <div class="md:grid md:grid-cols-5 md:gap-6">                 
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+
+                        <input id="accessibility" formControlName="accessibility" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="accessibility" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="accessibility" formControlName="accessibility" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="accessibility" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="accessibility" formControlName="accessibility" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="accessibility" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="accessibility" formControlName="accessibility" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="accessibility" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="accessibility" formControlName="accessibility" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="accessibility" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -525,35 +523,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="parking" formControlName="parking" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="parking" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="parking" formControlName="parking" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="parking" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="parking" formControlName="parking" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="parking" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="parking" formControlName="parking" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="parking" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="parking" formControlName="parking" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="parking" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -581,6 +579,8 @@
     
     </mat-step>
 
+        <!-- CLEANLINESSSSSSSSSSSSSSS -->
+
     <mat-step >
       <ng-template matStepLabel><b>Cleanliness</b></ng-template>
 
@@ -599,7 +599,7 @@
           </div>
           <div class="mt-5 md:mt-0 md:col-span-2">
 
-            <form [formGroup]="cleanlinessForm" (ngSubmit)="onSubmit()" >
+            <form [formGroup]="cleanlinessForm"  >
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                   <fieldset>
@@ -645,8 +645,8 @@
                         </label>
                       </div>                    
                     </div>
-
                   </fieldset>
+
                   <fieldset>
                     <div>
       
@@ -794,7 +794,7 @@
                   <button  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" mat-button matStepperNext>
                     Next
                   </button>
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <button (click)="addTotal()" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Submit
                   </button>
                 
@@ -810,6 +810,7 @@
     </mat-step>
 
 
+<!-- NURSINGGGGGGGGGGGGGGGGGGGGGGG -->
 
     <mat-step >
       <ng-template matStepLabel><b>Nursing</b></ng-template>
@@ -826,7 +827,7 @@
             
           </div>
           <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+            <form [formGroup]="nursingForm">
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                   <fieldset>
@@ -839,35 +840,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="attentiveness" formControlName="attentiveness" value="1" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="attentiveness" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="attentiveness" formControlName="attentiveness" value="2" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="attentiveness" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="attentiveness"  formControlName="attentiveness" value="3" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="attentiveness" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="attentiveness" formControlName="attentiveness" value="4" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="attentiveness" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="attentiveness" formControlName="attentiveness" value="5" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="attentiveness" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -884,35 +885,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="transparency"  formControlName="transparency" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="transparency" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="transparency" formControlName="transparency" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="transparency" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="transparency" formControlName="transparency" value="3" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="transparency" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="transparency" formControlName="transparency" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="transparency" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="transparency" formControlName="transparency" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="transparency" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -929,35 +930,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="knowledge" formControlName="knowledge" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="knowledge" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="knowledge" formControlName="knowledge" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="knowledge" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="knowledge" formControlName="knowledge" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="knowledge" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="knowledge" formControlName="knowledge" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="knowledge" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="knowledge" formControlName="knowledge" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="knowledge" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -974,35 +975,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="compassion" formControlName="compassion" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="compassion" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="compassion" formControlName="compassion" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="compassion" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="compassion" formControlName="compassion" value="3" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="compassion" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="compassion" formControlName="compassion" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="compassion" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="compassion" formControlName="compassion" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="compassion" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -1019,35 +1020,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitTimes" formControlName="waitTimes" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitTimes" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitTimes" formControlName="waitTimes" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitTimes" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitTimes" formControlName="waitTimes" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitTimes" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitTimes" formConwaitTimestrolName="waitTimes" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitTimes" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitTimes" formControlName="waitTimes" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitTimes" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -1077,6 +1078,7 @@
 
     </mat-step>
 
+          <!-- COVIDDDDDDDDDDDDDDDDDDDDDDDDDD -->
     <mat-step >
       <ng-template matStepLabel><b>Covid</b></ng-template>
       <div class="mt-10 sm:mt-0">
@@ -1088,11 +1090,13 @@
               Mega F Place Holder
               </p>
               
+
             </div>
             
           </div>
           <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+
+            <form [formGroup]="covidForm">
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                   <fieldset>
@@ -1105,35 +1109,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitingRooms" formControlName="waitingRooms" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitingRooms" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitingRooms" formControlName="waitingRooms" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitingRooms" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
-                          3
+                        <input id="waitingRooms" formControlName="waitingRooms" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitingRooms" class="ml-3 block text-sm font-medium text-gray-700">
+                          3 
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitingRooms" formControlName="waitingRooms" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitingRooms" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="waitingRooms" formControlName="waitingRooms" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="waitingRooms" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -1150,35 +1154,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="separation" formControlName="separation" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="separation" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="separation" formControlName="separation" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="separation" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="separation" formControlName="separation" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="separation" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="separation" formControlName="separation" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="separation" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="separation" formControlName="separation" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="separation" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -1195,35 +1199,35 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="screening" formControlName="screening" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="screening" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="screening" formControlName="screening" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="screening" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="screening" formControlName="screening" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="screening" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="screening" formControlName="screening" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="screening" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="screening" formControlName="screening" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="screening" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
                       </div>                    
@@ -1240,38 +1244,38 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="safety" formControlName="safety" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="safety" class="ml-3 block text-sm font-medium text-gray-700">
                           1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="safety" formControlName="safety" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="safety" class="ml-3 block text-sm font-medium text-gray-700">
                           2
                         </label>
                       </div>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="safety" formControlName="safety" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="safety" class="ml-3 block text-sm font-medium text-gray-700">
                           3
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="safety" formControlName="safety" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="safety" class="ml-3 block text-sm font-medium text-gray-700">
                           4
                         </label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="safety" formControlName="safety" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="safety" class="ml-3 block text-sm font-medium text-gray-700">
                           5
                         </label>
-                      </div>                    
+                      </div>                  
                     </div>
 
                   </fieldset>
@@ -1285,16 +1289,16 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="covid1" formControlName="covid1" value="true"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="covid1" class="ml-3 block text-sm font-medium text-gray-700">
                           Yes
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
+                        <input id="covid1" formControlName="covid1" value="false"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="covid1" class="ml-3 block text-sm font-medium text-gray-700">
                           No
                         </label>
                       </div>
@@ -1313,49 +1317,81 @@
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
-                          Yes
+                        <input id="protocols" formControlName="protocols" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="protocols" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
-                          No
+                        <input id="protocols" formControlName="protocols" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="protocols" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
                         </label>
                       </div>
                       </div>
-                                      
+                      <div class="flex items-center">
+                        <input id="protocols" formControlName="protocols" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="protocols" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="protocols" formControlName="protocols" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="protocols" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="protocols" formControlName="protocols" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="protocols" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                  
                     </div>
-
                   </fieldset>
                   <fieldset>
                     <div>
                   
                       <p class="text-sm text-gray-500">How satisfied were you with your Covid treatment at this hospital</p>
                     </div>
-
                     <div class="md:grid md:grid-cols-5 md:gap-6">
                     
                       
                       <div class="flex items-center ">
-                        <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">
-                          Yes
+                        <input id="treatment" formControlName="treatment" value="1"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="treatment" class="ml-3 block text-sm font-medium text-gray-700">
+                          1
                         </label>
                       </div>
 
                         <div class="relative">
                       <div class="flex items-center">
-                        <input id="push-email" name="push-notifications" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">
-                          No
+                        <input id="treatment" formControlName="treatment" value="2"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="treatment" class="ml-3 block text-sm font-medium text-gray-700">
+                          2
                         </label>
                       </div>
                       </div>
-                                      
+                      <div class="flex items-center">
+                        <input id="treatment" formControlName="treatment" value="3"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="treatment" class="ml-3 block text-sm font-medium text-gray-700">
+                          3
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="treatment" formControlName="treatment" value="4"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="treatment" class="ml-3 block text-sm font-medium text-gray-700">
+                          4
+                        </label>
+                      </div>
+                      <div class="flex items-center">
+                        <input id="treatment" formControlName="treatment" value="5"  type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="treatment" class="ml-3 block text-sm font-medium text-gray-700">
+                          5
+                        </label>
+                      </div>                  
                     </div>
 
                   </fieldset>

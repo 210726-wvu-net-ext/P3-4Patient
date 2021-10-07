@@ -1,12 +1,10 @@
 export interface Nursing{
     id: number,
-    waitingrooms: number,
-    protocols: number,
-    separation: number,
-    safety: number,
-    covid1: boolean,
-    screening: number,
-    treatment: number,
-    averagec: number
-   
+    attentiveness: number,
+    transparency: number,
+    knowledge: number,
+    compassion: number,
+    waitTimes: number,
+    averageN: number
+    
 }
