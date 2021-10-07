@@ -15,13 +15,11 @@
         />
       </div>
       <div class="col-md text-center text-md-left">
-        <h2>{{ user.email }}</h2>
-        <h2>{{ user.sub }}</h2>
+        <h2>{{ FirstName }} {{ LastName }}</h2>
+        <p>{{ email }}</p>
+        <p>{{Street}} {{City}}, {{State}} {{Zip}} </p>
+        <p>ID: {{userId}}</p>
       </div>
-    </div>
-  
-    <div class="row" *ngIf="profile">
-      <pre class="col-12 text-light bg-dark p-4">{{ profile }}</pre>
     </div>
   </div>
 

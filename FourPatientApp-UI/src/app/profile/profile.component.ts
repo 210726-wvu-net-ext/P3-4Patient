@@ -6,26 +6,40 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile = "";
-  //profileJson;
-  //userId;
-  //FirstName;
-  //LastName;
-  //City;
-  //Street;
-  //State;
-  //Phone;
-  //Zip;
+  profile:any;
+  email = "";
+  userId=0;
+  FirstName="";
+  LastName ="";
+  City="";
+  Street="";
+  State="";
+  Phone="";
+  Zip="";
   constructor(public auth: AuthService) {
-
-
+    
+    
 
    }
 
   ngOnInit(): void {
     this.auth.user$.subscribe(
-      (profile:any)=>(this.profile = JSON.stringify(profile, null, 2))
-    );   
+      (res:any)=>{
+        this.profile = res;
+        console.log(res);
+        this.email = res.email;
+        this.userId = parseInt(res.sub.substring(6));
+        this.FirstName = res['http://localhost:4200/FirstName'];
+        this.LastName = res['http://localhost:4200/LastName'];
+        this.Phone = res['http://localhost:4200/Phone'];
+        this.Zip = res['http://localhost:4200/Zip'];
+        this.State = res['http://localhost:4200/State'];
+        this.Street = res['http://localhost:4200/Street'];
+        this.City = res['http://localhost:4200/City'];
+      }
+    );
+    
+
   }
 
 }
