@@ -1,0 +1,27 @@
+<pre>
+
+
+
+
+
+</pre>
+<div *ngIf="auth.user$ | async as user">
+    <div class="row align-items-center profile-header">
+      <div class="col-md-2 mb-3">
+        <img
+          [src]="user.picture"
+          alt="User's profile picture"
+          class="rounded-circle img-fluid profile-picture"
+        />
+      </div>
+      <div class="col-md text-center text-md-left">
+        <h2>{{ user.email }}</h2>
+        <h2>{{ user.sub }}</h2>
+      </div>
+    </div>
+  
+    <div class="row" *ngIf="profile">
+      <pre class="col-12 text-light bg-dark p-4">{{ profile }}</pre>
+    </div>
+  </div>
+

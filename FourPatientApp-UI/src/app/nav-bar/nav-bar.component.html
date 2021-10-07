@@ -46,9 +46,9 @@
 
 
         <li><a href="hospital-view">Hospitals</a></li>
-        <li><a routerLink="register">Sign up</a></li>
-        <li><a (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</a></li>
-        <li><a (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a></li>
+        <li><a href="profile" *ngIf="auth.isAuthenticated$ | async" >Profile</a></li>
+        <li><a (click)="loginWithRedirect()"  *ngIf="(auth.isAuthenticated$ | async) === false">Log In</a></li>
+        <li><a (click)="logout()" *ngIf="auth.isAuthenticated$ | async">Log Out</a></li>
         
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
