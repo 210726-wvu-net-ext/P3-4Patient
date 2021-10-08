@@ -2,14 +2,10 @@ import { Time } from "@angular/common";
 
 export interface Review {
     id: number,
-    patientid: string,
     comfort: number,
-    dateposted: Time, // ??
+    datePosted: Date, 
     message: string,
-    hospitalid: number,
-    accommodationid: number,
-    nursingid: number,
-    covidid: number,
-    cleanlinessid: number
+    hospitalId: number,
+    patientId: number,
    
 }

@@ -6,5 +6,6 @@ export interface Cleanliness{
     equipment: number,
     bathroom: number,
     averageci: number
+    
    
 }
