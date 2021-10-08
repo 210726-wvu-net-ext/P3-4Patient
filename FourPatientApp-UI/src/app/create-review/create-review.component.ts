@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-
+import { AuthService } from '@auth0/auth0-angular';
 import { ReviewService } from '../review.service';
 
 @Component({
@@ -10,24 +10,17 @@ import { ReviewService } from '../review.service';
 })
 export class CreateReviewComponent implements OnInit {
 
-
+  userId = -1;
+  reviewId = -1;
   // hospitals: Hospital[] | null = null;
 
-  // cleanlinessForm : FormGroup;
   reviewForm = new FormGroup({
-    // id: new FormControl(0),
     comfort: new FormControl(4.43),
-    datePosted: new FormControl(null),
+    datePosted: new FormControl(new Date()),
     message: new FormControl('This hospital was not P3rfect 12'),
     hospitalid: new FormControl(2),
-    patientid: new FormControl(1)
+    patientid: new FormControl('')
   });
-
-  // get reviewid(){
-  //   return this.reviewForm.get('id') as FormControl;
-  // };
-
-
 
   cleanlinessForm = new FormGroup({
     id: new FormControl(''),
@@ -39,7 +32,7 @@ export class CreateReviewComponent implements OnInit {
   });
   
   nursingForm = new FormGroup({
-    id: new FormControl(14),
+    id: new FormControl(''),
     attentiveness: new FormControl(''),
     transparency: new FormControl(''),
     knowledge: new FormControl(''),
@@ -49,7 +42,7 @@ export class CreateReviewComponent implements OnInit {
   });
   
   covidForm = new FormGroup({
-    id: new FormControl(10),
+    id: new FormControl(''),
     waitingRooms: new FormControl(''),
     protocols: new FormControl(''),
     separation: new FormControl(''),
@@ -61,7 +54,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
   accommodationForm = new FormGroup({
-    id: new FormControl(11),
+    id: new FormControl(''),
     checkIn: new FormControl(''),
     discharge: new FormControl(''),
     equipment: new FormControl(''),
@@ -77,13 +70,29 @@ export class CreateReviewComponent implements OnInit {
   });
 
 
-  constructor(private reviewservice : ReviewService) { }
+  constructor(private reviewservice : ReviewService, public auth: AuthService) { 
+
+
+  }
   // , private formBuilder: FormBuilder
 
-  ngOnInit():void  {
-    this.addReview();
 
+   ngOnInit():void  {
+    this.setUser();
     
+  }
+  setUser(){
+    this.auth.user$.subscribe(
+      (res:any)=>{
+        this.userId = res;
+        this.reviewForm.patchValue({
+          patientid: parseInt(res.sub.substring(6)),
+        });
+        console.log(parseInt(res.sub.substring(6)));
+
+      }
+    );
+
   }
    addReview(){
     this.reviewservice.AddReview(this.reviewForm .value).subscribe(
@@ -102,8 +111,15 @@ export class CreateReviewComponent implements OnInit {
           id: res
         });
         alert("Review has been created");
+        this.reviewId = res;
+        this.addCleanliness();
+        this.addNursing();
+        this.addCovid();
+        this.addAccommodation();
       }
     );
+
+
   }
 
   addCleanliness(){
@@ -139,10 +155,8 @@ addAccommodation(){
 
 }
 
-  addTotal(){
-    this.addCleanliness();
-    this.addNursing();
-    this.addCovid();
-    this.addAccommodation();
+  async addTotal(){
+    this.addReview();
+
   }
 }
