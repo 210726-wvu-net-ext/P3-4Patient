@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateReviewComponent } from './create-review/create-review.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
 import { HospitalViewComponent } from './hospital-view/hospital-view.component';
 
@@ -17,7 +16,7 @@ import { HospitalViewComponent } from './hospital-view/hospital-view.component';
 import { HospitalService } from './hospital.service';
 import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ProfileComponent } from './profile/profile.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
@@ -31,11 +30,11 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InterceptorService } from './interceptor.service';
-import { AuthService } from './auth.service';
-import { ReviewViewComponent } from './review-view/review-view.component';
 
+import { ReviewViewComponent } from './review-view/review-view.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -44,12 +43,12 @@ import { ReviewViewComponent } from './review-view/review-view.component';
     HomeComponent,
     CreateReviewComponent,
     LoginComponent,
-    RegisterComponent,
     AccountComponent,
     HospitalViewComponent,
-
+    ProfileComponent,
     HospitalDetailsComponent,
-      ReviewViewComponent,
+    ReviewViewComponent,
+
    
 
   ],
@@ -59,16 +58,18 @@ import { ReviewViewComponent } from './review-view/review-view.component';
     ReactiveFormsModule,
     RouterModule,
     BrowserModule,
+    AuthModule.forRoot(
+      {...env.auth},
+    ),
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
-      { path: 'create-review', component: CreateReviewComponent },
+      { path: 'create-review', component: CreateReviewComponent, canActivate: [AuthGuard]},
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
-      { path: 'register', component: RegisterComponent },
-      {path: 'details/:id', component: HospitalDetailsComponent},
-     
+      { path: 'details/:id', component: HospitalDetailsComponent },
+      { path: 'profile', component: ProfileComponent },
   
    
     ]),

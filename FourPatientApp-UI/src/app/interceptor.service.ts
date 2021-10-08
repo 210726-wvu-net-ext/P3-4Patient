@@ -6,18 +6,18 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { AuthService } from './auth.service';
+import { AuthService } from '@auth0/auth0-angular';
 import { Observable, throwError } from 'rxjs';
 import { mergeMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptorService implements HttpInterceptor {
+export class InterceptorService /*implements HttpInterceptor*/ {
 
   constructor(private auth: AuthService) { }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  /*intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return this.auth.getTokenSilently$().pipe(
       mergeMap(token => {
         const tokenReq = req.clone({
@@ -27,5 +27,5 @@ export class InterceptorService implements HttpInterceptor {
       }),
       catchError(err => throwError(err))
     );
-  }
+  }*/
 }
