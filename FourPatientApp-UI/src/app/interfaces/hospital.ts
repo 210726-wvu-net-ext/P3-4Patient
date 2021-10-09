@@ -12,6 +12,6 @@ export interface Hospital {
     cleanliness: number,
     covid: number,
     description: string,
-    departments: string
+    departments: string,
 
 }

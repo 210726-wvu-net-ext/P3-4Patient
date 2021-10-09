@@ -79,6 +79,13 @@ namespace FourPatient.DataAccess
 
             return Review;
         }
+        public IEnumerable<Review> Test()
+        {
+            ICollection<Entities.Review> List = _context.Reviews.ToList();
+            ICollection<Review> N = List.Select(n => (Review)Map.Table(n)).ToList();
+
+            return N;
+        }
 
         public int Create(Review N)
         {
