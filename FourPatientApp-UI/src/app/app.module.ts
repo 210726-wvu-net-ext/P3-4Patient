@@ -26,11 +26,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
-
-
-
-
-
+import {MatSelectModule} from '@angular/material/select';
 import { ReviewViewComponent } from './review-view/review-view.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
@@ -58,6 +54,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
     ReactiveFormsModule,
     RouterModule,
     BrowserModule,
+    MatSelectModule,
     AuthModule.forRoot(
       {...env.auth},
     ),
