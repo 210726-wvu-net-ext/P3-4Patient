@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
+import { HospitalService } from '../hospital.service';
+import { Hospital } from '../interfaces/hospital';
 import { ReviewService } from '../review.service';
+
 
 @Component({
   selector: 'app-create-review',
@@ -12,13 +15,15 @@ export class CreateReviewComponent implements OnInit {
 
   userId = -1;
   reviewId = -1;
+  selected = 0;
+  hospitals : Hospital[] | null=null;
   // hospitals: Hospital[] | null = null;
 
   reviewForm = new FormGroup({
     comfort: new FormControl(4.43),
     datePosted: new FormControl(new Date()),
-    message: new FormControl('This hospital was not P3rfect 12'),
-    hospitalid: new FormControl(2),
+    message: new FormControl(''),
+    hospitalid: new FormControl(''),
     patientid: new FormControl('')
   });
 
@@ -70,7 +75,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
 
-  constructor(private reviewservice : ReviewService, public auth: AuthService) { 
+  constructor(private reviewservice : ReviewService, public auth: AuthService, private hospitalservice : HospitalService) { 
 
 
   }
@@ -79,8 +84,15 @@ export class CreateReviewComponent implements OnInit {
 
    ngOnInit():void  {
     this.setUser();
+    this.GetHospitals();
     
   }
+  GetHospitals()
+  {
+    this.hospitalservice.ListHospital().subscribe((hospitals) => {
+      this.hospitals = hospitals;
+    });
+    }
   setUser(){
     this.auth.user$.subscribe(
       (res:any)=>{
@@ -95,6 +107,11 @@ export class CreateReviewComponent implements OnInit {
 
   }
    addReview(){
+   
+    this.reviewForm.patchValue({
+      hospitalid: this.selected
+    });
+
     this.reviewservice.AddReview(this.reviewForm .value).subscribe(
       res => {
         console.log(res);
