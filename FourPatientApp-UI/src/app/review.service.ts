@@ -17,9 +17,16 @@ import { Accommodation } from './interfaces/accommodation';
   
     constructor(private https:HttpClient) { }
 
-    // ListRe():Observable<Hospital[]>{
-     //  return this.https.get<Hospital[]>(this.APIUrl+'/Hospital');
-    // }
+    ListReviews():Observable<Review[]>{
+      return this.https.get<Review[]>(this.APIUrl+'/Review');
+    }
+
+    GetReviewbyHospitalId(hospitalid : number) :Observable<Review[]>{
+      debugger;
+      return this.https.get<Review[]>(this.APIUrl+'/Review/'+ hospitalid)
+    }
+    
+  
     ListCleanliness():Observable<Cleanliness[]>{
         return this.https.get<Cleanliness[]>(this.APIUrl+'/Cleanliness');
     }
@@ -55,9 +62,4 @@ AddAccommodation(x : Accommodation) : Observable<Accommodation>{
 }
 
 
-
-    GetReviewbyId(id : number){
-      
-      return this.https.get<Review>(this.APIUrl+'/Review/'+ id)
-    }
   }

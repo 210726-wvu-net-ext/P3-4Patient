@@ -33,11 +33,19 @@ namespace FourPatient.WebAPI.Controllers
             return Ok(_reviewrepo.GetAll().Select(n => (Review)Map.Model(n)));
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Review> Get(int id)
+        //[HttpGet("{id}")]
+        //public ActionResult<Review> Get(int id)
+        //{
+        //    return Ok((Review)Map.Model(_reviewrepo.Get(id)));
+        //}
+
+
+        [HttpGet("{hospitalid}")]
+        public ActionResult<IEnumerable<Review>> Getbyhospitalid(int hospitalid)
         {
-            return Ok((Review)Map.Model(_reviewrepo.Get(id)));
+            return Ok(_reviewrepo.GetAll().Where(n => (n.HospitalId == hospitalid)));
         }
+
 
         [HttpPost("Create")]
         public ActionResult<int> Create([FromBody] Review review)
