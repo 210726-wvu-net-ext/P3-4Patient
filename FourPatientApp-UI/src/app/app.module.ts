@@ -31,6 +31,10 @@ import { ReviewViewComponent } from './review-view/review-view.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { CreateReviewhComponent } from './create-reviewh/create-reviewh.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 
 @NgModule({
   declarations: [
@@ -44,8 +48,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
     ProfileComponent,
     HospitalDetailsComponent,
     ReviewViewComponent,
-
-   
+    CreateReviewhComponent,
 
   ],
   imports: [
@@ -63,6 +66,8 @@ import { AuthGuard } from '@auth0/auth0-angular';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'create-review', component: CreateReviewComponent, canActivate: [AuthGuard]},
+      { path: 'create-reviewh/:id', component: CreateReviewhComponent, canActivate: [AuthGuard]},
+      
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
       { path: 'details/:id', component: HospitalDetailsComponent },
@@ -77,8 +82,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
     MatBottomSheetModule, 
     MatButtonModule,
     MatButtonToggleModule,
- 
-
+    MatSnackBarModule,
     MatChipsModule,
     MatInputModule,
     MatListModule,
