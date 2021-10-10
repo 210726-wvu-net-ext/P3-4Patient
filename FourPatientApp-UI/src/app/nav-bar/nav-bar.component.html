@@ -1,40 +1,50 @@
-<header>
-    <nav 
-      class="navbar bg-dark navbar-expand-sm navbar-toggleable-sm mb-0"
-    >
-      <div class="container">
-        <a class="navbar-brand" [routerLink]="['/']">4Patient</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target=".navbar-collapse"
-                aria-label="Toggle navigation"
-                [attr.aria-expanded]="isExpanded"
-                (click)="toggle()">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-             [ngClass]="{ show: isExpanded }">
-          <ul class="navbar-nav flex-grow">
-            <li class="nav-item"
-                [routerLinkActive]="['link-active']"
-                [routerLinkActiveOptions]="{ exact: true }">
-              <a class="nav-link nav-text" [routerLink]="['/']">Home</a>
-            </li>
-            <li>
-              <a class="nav-link nav-text" [routerLink]="['/create-review']">Create Review</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['link-active']" >
-              <a class="nav-link nav-text" [routerLink]="['/account']">Account</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-              <a class="nav-link nav-text" [routerLink]="['/login']" >Login</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-                <a class="nav-link nav-text" [routerLink]="['/register']" >Register</a>
-            </li>
-        </ul>
+
+   <!-- ======= Top Bar ======= -->
+   <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">masterKeegan@hotmail.com</a>
+       
+        <i class="bi bi-phone"></i> +1 347 705 4868
       </div>
-      </div>
-    </nav>
-  </header>
+     
+    </div>
+  </div>
+
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo me-auto"><a href="index.html">4Patient</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+
+        <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a routerLink="/create-review">Make a Review</a></li>          
+          </ul>
+        </li>
+        
+        <li><a routerLink="/create-review">Make a Review</a></li>
+
+
+        <li><a href="hospital-view">Hospitals</a></li>
+        <li><a href="profile" *ngIf="auth.isAuthenticated$ | async" >Profile</a></li>
+        <li><a (click)="loginWithRedirect()"  *ngIf="(auth.isAuthenticated$ | async) === false">Log In</a></li>
+        <li><a (click)="logout()" *ngIf="auth.isAuthenticated$ | async">Log Out</a></li>
+        
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+
+
+
