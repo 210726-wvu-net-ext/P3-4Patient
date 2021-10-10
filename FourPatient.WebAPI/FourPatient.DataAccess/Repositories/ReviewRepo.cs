@@ -80,9 +80,8 @@ namespace FourPatient.DataAccess
             return Review;
         }
 
-        public int Create(Review N)
+        public void Create(Review N)
         {
-            
             // Recalculate average score
             N.Comfort = Average(N);
 
@@ -93,8 +92,6 @@ namespace FourPatient.DataAccess
 
             // write changes to DB
             _context.SaveChanges();
-            int id = entity.Id;
-            return id;
         }
         public void Update(Review Review)
         {

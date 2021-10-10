@@ -40,14 +40,13 @@ namespace FourPatient.WebAPI.Controllers
         }
 
         [HttpPost("Create")]
-        public ActionResult<int> Create([FromBody] Review review)
+        public ActionResult Create([FromBody] Review review)
         {
-            int id = -1;
             if (ModelState.IsValid)
             {
-                id = _reviewrepo.Create((Domain.Tables.Review)Map.Table(review));
+                _reviewrepo.Create((Domain.Tables.Review)Map.Table(review));
             }
-            return Ok(id);
+            return Ok();
         }
 
         [HttpPut("Edit")]

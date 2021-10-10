@@ -1,29 +1,32 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { HospitalService } from '../hospital.service';
 import { Hospital } from '../interfaces/hospital';
 import { ReviewService } from '../review.service';
 
-
 @Component({
-  selector: 'app-create-review',
-  templateUrl: './create-review.component.html',
-  styleUrls: ['./create-review.component.css']
+  selector: 'app-create-reviewh',
+  templateUrl: './create-reviewh.component.html',
+  styleUrls: ['./create-reviewh.component.css']
 })
-export class CreateReviewComponent implements OnInit {
-
+export class CreateReviewhComponent implements OnInit {
   userId = -1;
   reviewId = -1;
   selected = 0;
   hospitals : Hospital[] | null=null;
+
+  hospitalidx = Number(this.route.snapshot.paramMap.get('id'));
+
   // hospitals: Hospital[] | null = null;
 
   reviewForm = new FormGroup({
     comfort: new FormControl(4.43),
     datePosted: new FormControl(new Date()),
     message: new FormControl(''),
-    hospitalid: new FormControl(''),
+    hospitalid: new FormControl(this.hospitalidx),
     patientid: new FormControl('')
   });
 
@@ -75,7 +78,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
 
-  constructor(private reviewservice : ReviewService, public auth: AuthService, private hospitalservice : HospitalService) { 
+  constructor(private reviewservice : ReviewService, public auth: AuthService, private hospitalservice : HospitalService,  private route: ActivatedRoute, private _snackbar : MatSnackBar) { 
 
 
   }
@@ -108,10 +111,6 @@ export class CreateReviewComponent implements OnInit {
   }
    addReview(){
    
-    this.reviewForm.patchValue({
-      hospitalid: this.selected
-    });
-
     this.reviewservice.AddReview(this.reviewForm .value).subscribe(
       res => {
         console.log(res);
@@ -127,7 +126,8 @@ export class CreateReviewComponent implements OnInit {
         this.accommodationForm.patchValue({
           id: res
         });
-        alert("Review has been created");
+        this._snackbar.open('Review has been added', 'Successfully')
+       
         this.reviewId = res;
         this.addCleanliness();
         this.addNursing();
@@ -142,7 +142,7 @@ export class CreateReviewComponent implements OnInit {
   addCleanliness(){
     this.reviewservice.AddCleanliness(this.cleanlinessForm.value).subscribe(
       res => {
-        alert("Cleanliness survey has been added");
+        
       }
     );
   }
@@ -150,7 +150,7 @@ export class CreateReviewComponent implements OnInit {
   addNursing(){
     this.reviewservice.AddNursing(this.nursingForm.value).subscribe(
       res => {
-        alert("Nursey survey has been added");
+        
       }
     );
   }
@@ -158,7 +158,7 @@ export class CreateReviewComponent implements OnInit {
 addCovid(){
   this.reviewservice.AddCovid(this.covidForm.value).subscribe(
     res => {
-      alert("Covid survey has been added");
+      
     }
   );
 
@@ -166,7 +166,7 @@ addCovid(){
 addAccommodation(){
   this.reviewservice.AddAccommodation(this.accommodationForm.value).subscribe(
     res => {
-      alert("Accommodation survey has been added");
+     
     }
   );
 
@@ -176,4 +176,5 @@ addAccommodation(){
     this.addReview();
 
   }
+
 }
