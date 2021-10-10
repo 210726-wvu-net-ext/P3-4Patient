@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  SymptoMedit.WebApi:
+    image: fourpatient-api
+    build:
+      context: FourPatient.WebApi
+      dockerfile: ./dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 44391:44391
+  
+  SymptomaticApp-UI: 
+    image: fourpatient-ui
+    build:
+      context: FourPatientApp-UI
+      dockerfile: ./dockerfile
+    enviroment:
+      NODE_ENV: production
+    ports:
+      - 4200:4200 
