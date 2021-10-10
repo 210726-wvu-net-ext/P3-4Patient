@@ -1,8 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Hospital } from '../interfaces/hospital';
-import { Review } from '../interfaces/review';
-import { ReviewService } from '../review.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-review-view',
@@ -11,22 +7,9 @@ import { ReviewService } from '../review.service';
 })
 export class ReviewViewComponent implements OnInit {
 
-
-  review: Review[] | null = null;
-  
-  constructor(private route: ActivatedRoute, private reviewservices : ReviewService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.GetReviewDetails();
-
   }
-  GetReviewDetails() {
-      const hospitalid = Number(this.route.snapshot.paramMap.get('id'));
-      console.log(hospitalid);
-  
-      this.reviewservices.GetReviewbyHospitalId(hospitalid)
-      .subscribe(review => this.review = review);
-  
-    }
 
 }

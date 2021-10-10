@@ -13,6 +13,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourPatient.Domain", "FourPatient.Domain\FourPatient.Domain.csproj", "{41CC9DCA-5320-4311-80B6-1CD85900FAF2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{2765EBDC-75D7-4AF6-9C3C-890A755A2ECE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{54821EC4-7379-4F25-BB7F-C2ED985E1CAE} = {54821EC4-7379-4F25-BB7F-C2ED985E1CAE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

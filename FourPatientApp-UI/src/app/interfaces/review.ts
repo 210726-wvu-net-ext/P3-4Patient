@@ -1,22 +1,15 @@
 import { Time } from "@angular/common";
-import { Nursing } from "./nursing";
-import { Accommodation } from "./accommodation";
-import { Covid } from "./covid";
-import { Cleanliness } from "./cleanliness";
-import { Patient } from "./patient";
 
 export interface Review {
     id: number,
+    patientid: string,
     comfort: number,
-    datePosted: Date, 
+    dateposted: Time, // ??
     message: string,
-    hospitalId: number,
-    patientId: number,
-    nursing: Nursing,
-    accommodation: Accommodation,
-    covid : Covid,
-    cleanliness: Cleanliness ,
-    patient: Patient
-
-
+    hospitalid: number,
+    accommodationid: number,
+    nursingid: number,
+    covidid: number,
+    cleanlinessid: number
+   
 }

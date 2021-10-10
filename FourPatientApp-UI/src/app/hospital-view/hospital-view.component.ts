@@ -24,11 +24,4 @@ export class HospitalViewComponent implements OnInit {
       this.hospitals = hospitals;
     });
     }
-    // To save Edit
-    // save(): void {
-    //   if (this.hero) {
-    //     this.heroService.updateHero(this.hero)
-    //       .subscribe(() => this.goBack());
-    //   }
-
 }

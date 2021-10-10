@@ -1,17 +1,17 @@
 
 export interface Accommodation{
     id: number,
-    checkIn: number,
+    checkin: number,
     discharge: number,
     equipment: number,
     policy: number,
     privacy: number,
     room: number,
-    foodOptions: number,
-    foodQuality: number,
-    dietOptions: number,
+    foodoptions: number,
+    foodquality: number,
+    dietoptions: number,
     accessibility: number,
     parking: number,
-    averageA: number
+    averagea: number
    
 }

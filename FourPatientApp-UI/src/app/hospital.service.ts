@@ -21,14 +21,4 @@ import { Hospital } from './interfaces/hospital';
       
       return this.https.get<Hospital>(this.APIUrl+'/Hospital/'+ id)
     }
-
-    // httpOptions = {
-    //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    // };
-    // EditHospital-For Later
-    // updateHero(hero: Hero): Observable<any> {
-    //   return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-    //     tap(_ => this.log(`updated hero id=${hero.id}`)),
-    //     catchError(this.handleError<any>('updateHero'))
-    //   );
   }
