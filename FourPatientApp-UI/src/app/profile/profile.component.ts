@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { UserService } from '../user.service';
+import { Review } from '../interfaces/review';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,7 +18,8 @@ export class ProfileComponent implements OnInit {
   State="";
   Phone="";
   Zip="";
-  constructor(public auth: AuthService) {
+  reviews: Review[] = new Array(0);
+  constructor(public auth: AuthService, public user: UserService) {
     
     
 
@@ -36,6 +39,11 @@ export class ProfileComponent implements OnInit {
         this.State = res['http://localhost:4200/State'];
         this.Street = res['http://localhost:4200/Street'];
         this.City = res['http://localhost:4200/City'];
+        this.user.GetReviewbyPatientId(parseInt(res.sub.substring(6))).subscribe(
+          (rev:any)=>{
+            this.reviews = rev;
+          }
+        )
       }
     );
     
