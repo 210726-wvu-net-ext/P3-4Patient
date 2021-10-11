@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '@auth0/auth0-angular';
 import { HospitalService } from '../hospital.service';
 import { Hospital } from '../interfaces/hospital';
@@ -75,7 +76,7 @@ export class CreateReviewComponent implements OnInit {
   });
 
 
-  constructor(private reviewservice : ReviewService, public auth: AuthService, private hospitalservice : HospitalService) { 
+  constructor(private reviewservice : ReviewService, public auth: AuthService, private hospitalservice : HospitalService, private _snackbar : MatSnackBar) { 
 
 
   }
@@ -127,7 +128,7 @@ export class CreateReviewComponent implements OnInit {
         this.accommodationForm.patchValue({
           id: res
         });
-        alert("Review has been created");
+        this._snackbar.open('Review has been added', 'Successfully')
         this.reviewId = res;
         this.addCleanliness();
         this.addNursing();
@@ -142,7 +143,7 @@ export class CreateReviewComponent implements OnInit {
   addCleanliness(){
     this.reviewservice.AddCleanliness(this.cleanlinessForm.value).subscribe(
       res => {
-        alert("Cleanliness survey has been added");
+      
       }
     );
   }
@@ -150,7 +151,7 @@ export class CreateReviewComponent implements OnInit {
   addNursing(){
     this.reviewservice.AddNursing(this.nursingForm.value).subscribe(
       res => {
-        alert("Nursey survey has been added");
+        
       }
     );
   }
@@ -158,7 +159,7 @@ export class CreateReviewComponent implements OnInit {
 addCovid(){
   this.reviewservice.AddCovid(this.covidForm.value).subscribe(
     res => {
-      alert("Covid survey has been added");
+      
     }
   );
 
@@ -166,7 +167,7 @@ addCovid(){
 addAccommodation(){
   this.reviewservice.AddAccommodation(this.accommodationForm.value).subscribe(
     res => {
-      alert("Accommodation survey has been added");
+     
     }
   );
 

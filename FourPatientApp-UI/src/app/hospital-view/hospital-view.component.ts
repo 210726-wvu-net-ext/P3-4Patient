@@ -12,18 +12,41 @@ export class HospitalViewComponent implements OnInit {
   constructor(private hospitalservice: HospitalService) { }
 
 
-  hospitals: Hospital[] | null = null;
-
+  hospitals: Hospital[] = [];
+  searchInput: string = "";
   ngOnInit(): void {
     this.GetHospitals();
   }
+  search(){
+    this.hospitalservice.SearchHospitals(this.searchInput).subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.hospitals = res;
+      }
 
+    );
+  }
   GetHospitals()
   {
     this.hospitalservice.ListHospital().subscribe((hospitals) => {
       this.hospitals = hospitals;
     });
-    }
+  }
+  SortByAccomodations(){
+    this.hospitals.sort((a,b) =>( a.accomodations > b.accomodations)? -1: 1)
+  }
+  SortByComfort(){
+    this.hospitals.sort((a,b) =>( a.comfort > b.comfort)? -1: 1)
+  }
+  SortByNursing(){
+    this.hospitals.sort((a,b) =>( a.nursing > b.nursing)? -1: 1)
+  }
+  SortByCleanliness(){
+    this.hospitals.sort((a,b) =>( a.cleanliness > b.cleanliness)? -1: 1)
+  }
+  SortByName(){
+    this.hospitals.sort((a,b) =>( a.name > b.name)? 1: -1)
+  }
     // To save Edit
     // save(): void {
     //   if (this.hero) {

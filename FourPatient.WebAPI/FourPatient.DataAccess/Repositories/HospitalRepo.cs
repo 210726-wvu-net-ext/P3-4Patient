@@ -33,6 +33,84 @@ namespace FourPatient.DataAccess
             return N;
         }
 
+        public IEnumerable<Hospital> SearchName(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.Name.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchZip(int zip)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.ZipCode == zip).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchCity(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.City.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchAddress(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.Address.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchDepartments(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.Departments.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchState(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.State.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
         public Hospital Get(int id)
         {
             // The DbSet .Find() method searches DB based on primary key value
@@ -69,7 +147,11 @@ namespace FourPatient.DataAccess
         }
         public void Delete(int id)
         {
-            _context.Remove(Get(id));
+            Entities.Hospital hospital = (Entities.Hospital)Map.Entity(Get(id));
+
+            _context.ChangeTracker.Clear();
+
+            _context.Remove(hospital);
 
             // write changes to DB
             _context.SaveChanges();
@@ -93,49 +175,61 @@ namespace FourPatient.DataAccess
             foreach (var review in R)
             {
                 sum += review.Comfort;
-                i++;
+                i += review.Comfort != 0 ? 1 : 0;
 
                 Entities.Accommodation a = _context.Accommodations.Find(review.Id);
                 if (a != null)
                 {
                     sumA += a.AverageA ?? 0;
-                    countA++;
+                    countA += a.AverageA != null ? 1 : 0;
                 }
 
                 Entities.Cleanliness cl = _context.Cleanlinesses.Find(review.Id);
                 if (cl != null)
                 {
                     sumCl += cl.AverageCl ?? 0;
-                    countCl++;
+                    countCl += cl.AverageCl != null ? 1 : 0;
                 }
 
                 Entities.Covid c = _context.Covids.Find(review.Id);
                 if (c != null)
                 {
                     sumC += c.AverageC ?? 0;
-                    countC++;
+                    countC += c.AverageC != null ? 1 : 0;
                 }
 
                 Entities.Nursing n = _context.Nursings.Find(review.Id);
                 if (n != null)
                 {
                     sumN += n.AverageN ?? 0;
-                    countN++;
+                    countN += n.AverageN != null ? 1 : 0;
                 }
             }
 
-            if (i == 0)
-                return H;
+            if (i != 0)
+                H.Comfort = (decimal)sum / i;
+            else
+                H.Comfort = 0;
 
-            H.Comfort = (decimal)sum / i;
             if (countA != 0)
                 H.Accomodations = (decimal)sumA / countA;
+            else
+                H.Accomodations = 0;
+
             if (countCl != 0)
                 H.Cleanliness = (decimal)sumCl / countCl;
+            else
+                H.Cleanliness = 0;
+
             if (countC != 0)
                 H.Covid = (decimal)sumC / countC;
+            else
+                H.Covid = 0;
+
             if (countN != 0)
                 H.Nursing = (decimal)sumN / countN;
+            else
+                H.Nursing = 0;
 
             return H;
         }
