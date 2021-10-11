@@ -18,8 +18,45 @@
         <h2>{{ FirstName }} {{ LastName }}</h2>
         <p>{{ email }}</p>
         <p>{{Street}} {{City}}, {{State}} {{Zip}} </p>
-        <p>ID: {{userId}}</p>
       </div>
+      <tr *ngFor="let review of reviews">
+        <td class="px-10 py-1 whitespace-nowrap">
+          <div class="flex items-center">                
+            <div class="ml-4">
+              <div class="text-sm font-medium text-gray-900">
+                {{review.patient.firstName}} {{review.patient.lastName}}
+              </div>
+              <div class="text-sm text-gray-500">                     
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="px-10 py-1 whitespace-nowrap">
+          <div class="text-sm text-gray-900">{{review.message}}</div>
+          <div class="text-sm text-gray-500"></div>
+        </td>
+        <td class="px-10 py-1 whitespace-nowrap">
+          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+            {{review.comfort}}
+          </span>
+        </td>
+        <td class="px-10 py-1 whitespace-nowrap text-sm text-gray-500">
+          {{review.nursing.averageN}}
+        <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-500">
+        {{review.accommodation.averageA}}
+            
+          </td>
+          <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-500">
+            {{review.cleanliness.averageCl}}                  
+          </td>
+          <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-500">
+            {{review.covid.averageC}}                  
+          </td>
+        <td class="px-16 py-4 whitespace-nowrap text-right text-sm font-medium">
+          <a href="#" class="text-indigo-600 hover:text-indigo-900">{{review.datePosted}}</a>
+        </td>
+
+      </tr>
     </div>
   </div>
 

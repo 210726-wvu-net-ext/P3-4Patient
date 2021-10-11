@@ -39,6 +39,12 @@ namespace FourPatient.WebAPI.Controllers
         //    return Ok((Review)Map.Model(_reviewrepo.Get(id)));
         //}
 
+        [HttpGet("patient/{patientid}")]
+        public ActionResult<IEnumerable<Review>> Getbypatientid(int patientid)
+        {
+            return Ok(_reviewrepo.GetAll().Where(n => (n.PatientId == patientid)));
+        }
+
 
         [HttpGet("{hospitalid}")]
         public ActionResult<IEnumerable<Review>> Getbyhospitalid(int hospitalid)
