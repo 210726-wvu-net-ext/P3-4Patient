@@ -5,18 +5,18 @@ services:
     image: fourpatient-api
     build:
       context: FourPatient.WebApi
-      dockerfile: ./dockerfile
+      dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
     ports:
-      - 44391:44391
+      - 32263:32263
   
   SymptomaticApp-UI: 
-    image: fourpatient-ui
+    image: FourPatient-ui
     build:
-      context: FourPatientApp-UI
+      context: FourPatientAPP-UI
       dockerfile: ./dockerfile
     enviroment:
       NODE_ENV: production
     ports:
-      - 4200:4200 
+      - 4200:4200
