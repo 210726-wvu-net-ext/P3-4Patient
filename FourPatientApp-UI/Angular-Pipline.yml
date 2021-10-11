@@ -11,14 +11,13 @@ pr:
   branches:
     include:
     - master
-
+    
   paths:
     include:
     - 'FourPatientApp-UI'
 
 variables:
   appDir: 'FourPatientApp-UI'
-  cReg: 2107-p3-acr-FourPatient
 
 pool:
   vmImage: ubuntu-latest
@@ -37,11 +36,9 @@ steps:
   displayName: ng build
   workingDirectory: $(appDir)
 
-- script: npx ng test --browsers ChromeHeadless --watch false --code-coverage
+- script: npx ng test --browsers ChromeHeadless --watch false --code-coverage || true
   displayName: ng test
   workingDirectory: $(appDir)
-  continueOnError: true
-
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'FourPatient_Sonarcloud'
@@ -61,37 +58,3 @@ steps:
   displayName: sonar publish analysis result
   inputs:
     pollingTimeoutSec: '300'
-
-
-- stage: Docker
-  jobs:
-    - job: Docker_Build
-      displayName: Docker Build & Push
-      steps:
-      #Login
-      - task: Docker@2
-        displayName: Login
-        inputs:
-          containerRegistry: $(cReg)
-          command: 'login'
-      #Build
-      - task: Docker@2
-        displayName: Build & Push
-        inputs:
-          containerRegistry: '$(cReg)'
-          repository: 'kwedwick/fourpatient-ui'
-          command: 'buildAndPush'
-          Dockerfile: '**/dockerfile'
-          tags: 'latest'
-      #Publish artifact
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: '$(appDir)/fourpatientappui.yml'
-          artifact: 'manifest'
-          publishLocation: 'pipeline'
-      #logout
-      - task: Docker@2
-        displayName: Logout
-        inputs:
-          containerRegistry: $(cReg)
-          command: 'logout'
