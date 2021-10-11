@@ -18,6 +18,8 @@ pr:
 
 variables:
   appDir: 'FourPatientApp-UI'
+  cReg: '2107-p3-acr-FourPatient'
+
 
 pool:
   vmImage: ubuntu-latest
