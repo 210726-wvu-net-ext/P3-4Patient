@@ -1,18 +1,22 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: fourpatient
+
+---
+apiVersion: v1
 kind: Service
 metadata:
-  name: fourpatient-frontend
-  labels:
-    app: fourpatient
-    role: ui
+  annotation:
+    service.beta.kubernetes.io/azure-dns-label-name: fourpatient-frontend
+  name: azure-load-balancer
 spec:
-  type: NodePort
+  type: LoadBalancer
+  ports:
+  - port: 80
   selector:
     app: fourpatient
     role: ui
-  ports:
-  - port: 80
-    nodePort: 30008
 
 ---
 apiVersion: apps/v1
