@@ -92,7 +92,7 @@ stages:
       #Publish artifact
       - task: PublishPipelineArtifact@1
         inputs:
-          targetPath: '$(symptDirectory)/fourpatientwebapi.yml'
+          targetPath: '$(symptDirectory)/fourpatient-web-api.yml'
           artifact: 'manifest'
           publishLocation: 'pipeline'
       #logout
