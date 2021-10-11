@@ -15,6 +15,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   symptDirectory: './FourPatient.WebApi'
+  cReg: '2107-p3-acr-FourPatient'
 
 stages:
 - stage: Build
