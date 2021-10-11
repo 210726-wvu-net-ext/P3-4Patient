@@ -22,6 +22,10 @@ import { Hospital } from './interfaces/hospital';
       return this.https.get<Hospital>(this.APIUrl+'/Hospital/'+ id)
     }
 
+    SearchHospitals(str: string){
+      return this.https.get<Hospital>(this.APIUrl+'/Hospital/search/'+ str)
+    }
+
     // httpOptions = {
     //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     // };

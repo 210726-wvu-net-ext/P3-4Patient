@@ -71,7 +71,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
       { path: 'hospital-view', component: HospitalViewComponent },
       { path: 'account', component: AccountComponent },
       { path: 'details/:id', component: HospitalDetailsComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   
    
     ]),
