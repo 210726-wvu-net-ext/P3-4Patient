@@ -58,6 +58,8 @@ steps:
   displayName: sonar publish analysis result
   inputs:
     pollingTimeoutSec: '300'
+    
+    
 - stage: Docker
   jobs:
     - job: Docker_Build
