@@ -1,20 +1,11 @@
 trigger:
-  branches:
-    include:
-    - master
-    - Develop
-  paths:
-    include:
-    - FourPatient.WebApi
+- master
+- Develop
 
 pr:
   branches:
     include:
     - master
-    - Develop
-  paths:
-    include:
-    - FourPatient.WebApi
 
 pool:
   vmImage: 'windows-latest'
@@ -24,7 +15,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   symptDirectory: './FourPatient.WebApi'
-  cReg: 2107-p3-acr-FourPatient
+  cReg: '2107-p3-acr-FourPatient'
 
 stages:
 - stage: Build
@@ -63,6 +54,7 @@ stages:
         DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
       displayName: dotnet test
       workingDirectory: $(symptDirectory)
+      continueOnError: true
 
     - task: SonarCloudAnalyze@1
       displayName: 'Run SonarCloud analysis'
@@ -70,6 +62,13 @@ stages:
     - task: SonarCloudPublish@1
       displayName: 'Publish results on build summary'
 
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+        
+        
 - stage: Docker
   jobs:
     - job: Docker_Build
@@ -93,7 +92,7 @@ stages:
       #Publish artifact
       - task: PublishPipelineArtifact@1
         inputs:
-          targetPath: '$(symptDirectory)/fourpatientwebapi.yml'
+          targetPath: '$(symptDirectory)/fourpatient-web-api.yml'
           artifact: 'manifest'
           publishLocation: 'pipeline'
       #logout

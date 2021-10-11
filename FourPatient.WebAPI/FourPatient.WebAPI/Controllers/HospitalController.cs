@@ -33,7 +33,30 @@ namespace FourPatient.WebAPI.Controllers
             return Ok(_hospitalrepo.GetAll().Select(n => (Hospital)Map.Model(n)));
         }
 
-
+        [HttpGet("search/{str}")]
+        public ActionResult<IEnumerable<Hospital>> Search(string str)
+        {
+            if (!String.IsNullOrEmpty(str))
+            {
+                int zip;
+                if(int.TryParse(str, out zip))
+                {
+                    return Ok(_hospitalrepo.SearchZip(zip).Select(n => (Hospital)Map.Model(n)));
+                }
+                else
+                {
+                    IEnumerable<Hospital> temp;
+                    temp = _hospitalrepo.SearchName(str).Select(n => (Hospital)Map.Model(n));
+                    temp = temp.Concat(_hospitalrepo.SearchCity(str).Select(n => (Hospital)Map.Model(n)));
+                    temp = temp.Concat(_hospitalrepo.SearchAddress(str).Select(n => (Hospital)Map.Model(n)));
+                    temp = temp.Concat(_hospitalrepo.SearchDepartments(str).Select(n => (Hospital)Map.Model(n)));
+                    temp = temp.Concat(_hospitalrepo.SearchState(str).Select(n => (Hospital)Map.Model(n)));
+                    temp = temp.GroupBy(x => x.Id).Select(x => x.First()).ToList();
+                    return Ok(temp);
+                }
+            }
+            return Ok(_hospitalrepo.GetAll().Select(n => (Hospital)Map.Model(n)));
+        }
 
         [HttpGet("{id}")]
         public ActionResult<Hospital> Get(int id)
