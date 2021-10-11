@@ -14,5 +14,11 @@ namespace FourPatient.Domain
         void Create(Hospital hospital);
         void Update(Hospital hospital);
         void Delete(int id);
+        IEnumerable<Hospital> SearchName(string str);
+        IEnumerable<Hospital> SearchZip(int zip);
+        IEnumerable<Hospital> SearchCity(string str);
+        IEnumerable<Hospital> SearchAddress(string str);
+        IEnumerable<Hospital> SearchDepartments(string str);
+        IEnumerable<Hospital> SearchState(string str);
     }
 }

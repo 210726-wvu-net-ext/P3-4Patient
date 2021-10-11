@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fourpatient
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotation:
+    service.beta.kubernetes.io/azure-dns-label-name: fourpatient-frontend
+  name: azure-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: fourpatient
+    role: ui
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fourpatient-frontend
+  labels:
+    app: fourpatient
+    role: ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fourpatient
+      role: ui
+  template:
+    metadata:
+      labels:
+        app: fourpatient
+        role: ui
+    spec:
+      imagePullSecrets:
+      - name: fourpatient-frontend
+      containers:
+      - name: ui
+        image: fourpatient/frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4200

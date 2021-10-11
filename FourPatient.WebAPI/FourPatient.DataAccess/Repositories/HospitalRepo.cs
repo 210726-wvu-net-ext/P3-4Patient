@@ -33,6 +33,84 @@ namespace FourPatient.DataAccess
             return N;
         }
 
+        public IEnumerable<Hospital> SearchName(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.Name.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchZip(int zip)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.ZipCode == zip).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchCity(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.City.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchAddress(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.Address.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchDepartments(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.Departments.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
+        public IEnumerable<Hospital> SearchState(string str)
+        {
+            ICollection<Entities.Hospital> List = _context.Hospitals.ToList();
+            ICollection<Entities.Hospital> query = List.Where(Hospital => Hospital.State.ToLower().Contains(str.ToLower())).ToList();
+            ICollection<Hospital> N = query.Select(n => (Hospital)Map.Table(n)).ToList();
+            foreach (var Hospital in N)
+            {
+                ICollection<Entities.Review> R = _context.Reviews.Where(x => x.HospitalId == Hospital.Id).ToList();
+                Hospital.Reviews = R.Select(x => (Review)Map.Table(x)).ToList();
+            };
+
+            return N;
+        }
         public Hospital Get(int id)
         {
             // The DbSet .Find() method searches DB based on primary key value
