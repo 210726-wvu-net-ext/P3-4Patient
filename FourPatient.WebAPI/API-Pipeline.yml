@@ -66,6 +66,8 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
+        
+        
 - stage: Docker
   jobs:
     - job: Docker_Build
