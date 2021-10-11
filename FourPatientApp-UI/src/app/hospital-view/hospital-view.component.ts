@@ -20,6 +20,7 @@ export class HospitalViewComponent implements OnInit {
   search(){
     this.hospitalservice.SearchHospitals(this.searchInput).subscribe(
       (res:any)=>{
+        console.log(res);
         this.hospitals = res;
       }
 
