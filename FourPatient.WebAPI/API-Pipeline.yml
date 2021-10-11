@@ -1,20 +1,11 @@
 trigger:
-  branches:
-    include:
-    - master
-    - Develop
-  paths:
-    include:
-    - FourPatient.WebApi
+- master
+- Develop
 
 pr:
   branches:
     include:
     - master
-    - Develop
-  paths:
-    include:
-    - FourPatient.WebApi
 
 pool:
   vmImage: 'windows-latest'
@@ -24,7 +15,6 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   symptDirectory: './FourPatient.WebApi'
-  cReg: 2107-p3-acr-FourPatient
 
 stages:
 - stage: Build
@@ -71,35 +61,8 @@ stages:
     - task: SonarCloudPublish@1
       displayName: 'Publish results on build summary'
 
-- stage: Docker
-  jobs:
-    - job: Docker_Build
-      displayName: Docker Build & Push
-      steps:
-      #Login
-      - task: Docker@2
-        displayName: Login
-        inputs:
-          containerRegistry: $(cReg)
-          command: 'login'
-      #Build
-      - task: Docker@2
-        displayName: Build & Push
-        inputs:
-          containerRegistry: '$(cReg)'
-          repository: 'kwedwick/fourpatient-api'
-          command: 'buildAndPush'
-          Dockerfile: '**/Dockerfile'
-          tags: 'latest'
-      #Publish artifact
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: '$(symptDirectory)/fourpatientwebapi.yml'
-          artifact: 'manifest'
-          publishLocation: 'pipeline'
-      #logout
-      - task: Docker@2
-        displayName: Logout
-        inputs:
-          containerRegistry: $(cReg)
-          command: 'logout'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
