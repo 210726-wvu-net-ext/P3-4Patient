@@ -26,7 +26,8 @@
                   </th>           
               </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">        
+            <tbody class="bg-white divide-y divide-gray-200">   
+              <a *ngFor="let reviews of review">    
               <tr >
                 <td class="px-10 py-1 whitespace-nowrap">
                   <div class="flex items-center">                
@@ -40,7 +41,7 @@
                   </div>
                 </td>
                 <td class="px-10 py-1 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">data.message</div>
+                  <div class="text-sm text-gray-900">{{reviews.message}}</div>
                   <div class="text-sm text-gray-500"></div>
                 </td>
                 <td class="px-10 py-1 whitespace-nowrap">
@@ -62,6 +63,7 @@
                   <a href="#" class="text-indigo-600 hover:text-indigo-900">Date Posted</a>
                 </td>
               </tr>
+            </a> 
             </tbody>
           </table>
         </div>

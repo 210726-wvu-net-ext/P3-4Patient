@@ -1,3 +1,4 @@
+
 export interface Nursing{
     id: number,
     attentiveness: number,
