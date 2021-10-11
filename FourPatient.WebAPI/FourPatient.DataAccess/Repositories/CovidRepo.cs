@@ -97,7 +97,7 @@ namespace FourPatient.DataAccess
                 if (prop.PropertyType == typeof(int?))
                 {
                     sum += (int?)prop.GetValue(N, null) ?? 0;
-                    i++;
+                    i += (int?)prop.GetValue(N, null) != null ? 1 : 0;
                 }
             }
 

@@ -67,7 +67,11 @@ namespace FourPatient.DataAccess
         }
         public void Delete(int id)
         {
-            _context.Remove(Get(id));
+            Entities.Patient patient = (Entities.Patient)Map.Entity(Get(id));
+
+            _context.ChangeTracker.Clear();
+
+            _context.Remove(patient);
 
             // write changes to DB
             _context.SaveChanges();

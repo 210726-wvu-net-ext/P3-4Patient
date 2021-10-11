@@ -147,7 +147,11 @@ namespace FourPatient.DataAccess
         }
         public void Delete(int id)
         {
-            _context.Remove(Get(id));
+            Entities.Hospital hospital = (Entities.Hospital)Map.Entity(Get(id));
+
+            _context.ChangeTracker.Clear();
+
+            _context.Remove(hospital);
 
             // write changes to DB
             _context.SaveChanges();
@@ -171,49 +175,61 @@ namespace FourPatient.DataAccess
             foreach (var review in R)
             {
                 sum += review.Comfort;
-                i++;
+                i += review.Comfort != 0 ? 1 : 0;
 
                 Entities.Accommodation a = _context.Accommodations.Find(review.Id);
                 if (a != null)
                 {
                     sumA += a.AverageA ?? 0;
-                    countA++;
+                    countA += a.AverageA != null ? 1 : 0;
                 }
 
                 Entities.Cleanliness cl = _context.Cleanlinesses.Find(review.Id);
                 if (cl != null)
                 {
                     sumCl += cl.AverageCl ?? 0;
-                    countCl++;
+                    countCl += cl.AverageCl != null ? 1 : 0;
                 }
 
                 Entities.Covid c = _context.Covids.Find(review.Id);
                 if (c != null)
                 {
                     sumC += c.AverageC ?? 0;
-                    countC++;
+                    countC += c.AverageC != null ? 1 : 0;
                 }
 
                 Entities.Nursing n = _context.Nursings.Find(review.Id);
                 if (n != null)
                 {
                     sumN += n.AverageN ?? 0;
-                    countN++;
+                    countN += n.AverageN != null ? 1 : 0;
                 }
             }
 
-            if (i == 0)
-                return H;
+            if (i != 0)
+                H.Comfort = (decimal)sum / i;
+            else
+                H.Comfort = 0;
 
-            H.Comfort = (decimal)sum / i;
             if (countA != 0)
                 H.Accomodations = (decimal)sumA / countA;
+            else
+                H.Accomodations = 0;
+
             if (countCl != 0)
                 H.Cleanliness = (decimal)sumCl / countCl;
+            else
+                H.Cleanliness = 0;
+
             if (countC != 0)
                 H.Covid = (decimal)sumC / countC;
+            else
+                H.Covid = 0;
+
             if (countN != 0)
                 H.Nursing = (decimal)sumN / countN;
+            else
+                H.Nursing = 0;
 
             return H;
         }
