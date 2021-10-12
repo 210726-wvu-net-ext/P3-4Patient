@@ -1,22 +1,21 @@
-apiVersion: v1
+﻿apiVersion: v1
 kind: Namespace
 metadata:
-  name:fourpatient
-  
+  name: fourpatient
 ---
 apiVersion: v1
 kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/azure-dns-label-name: fourpatient-webapi
-  name: azure-load-balancer
+  name: fourpatient-webapi
 spec: 
   type: LoadBalancer
     port:
     - port: 80
     selector: fourpatient
     role: api
-
+​
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,7 +40,10 @@ spec:
       - name: fourpatient-webapi
       containers:
       - name: api
-        image: fourpatient/webapi:latest
+        image: bacoordinationp3.azurecr.io/kwedwick/fourpatient-api:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 44391
+        - containerPort: 44347
+        envFrom:
+        - secretRef:
+            name: db-connection
