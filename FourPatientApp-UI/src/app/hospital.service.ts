@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Hospital } from './interfaces/hospital';
-
+import { environment as env } from '../environments/environment';
 
 @Injectable({
     providedIn: 'root'
   })
 
   export class HospitalService {
-    readonly APIUrl="https://localhost:44347/api";
+    readonly APIUrl=`${env.apiUrl}`;
   
     constructor(private https:HttpClient) { }
 

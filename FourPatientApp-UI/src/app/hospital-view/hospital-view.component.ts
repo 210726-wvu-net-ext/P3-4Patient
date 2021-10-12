@@ -27,6 +27,7 @@ export class HospitalViewComponent implements OnInit {
       (res:any)=>{
         console.log(res);
         this.hospitals = res;
+        this.hospitals.sort((a,b) =>( a.comfort > b.comfort)? -1: 1)
       }
 
       
@@ -36,6 +37,7 @@ export class HospitalViewComponent implements OnInit {
   {
     this.hospitalservice.ListHospital().subscribe((hospitals) => {
       this.hospitals = hospitals;
+      this.hospitals.sort((a,b) =>( a.comfort > b.comfort)? -1: 1)
     });
   }
   SortByAccomodations(){

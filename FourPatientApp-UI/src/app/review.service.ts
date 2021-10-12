@@ -6,14 +6,14 @@ import { Cleanliness } from './interfaces/cleanliness';
 import { Nursing } from './interfaces/nursing';
 import { Covid } from './interfaces/covid';
 import { Accommodation } from './interfaces/accommodation';
-
+import { environment as env } from '../environments/environment';
 
 @Injectable({
     providedIn: 'root'
   })
 
   export class ReviewService {
-    readonly APIUrl="https://localhost:44347/api";
+    readonly APIUrl=`${env.apiUrl}`;
   
     constructor(private https:HttpClient) { }
 
