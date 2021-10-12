@@ -33,6 +33,7 @@ import { environment as env } from '../environments/environment';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { CreateReviewhComponent } from './create-reviewh/create-reviewh.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -49,7 +50,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HospitalDetailsComponent,
     ReviewViewComponent,
     CreateReviewhComponent,
-
+  
   ],
   imports: [
     HttpClientModule,
@@ -86,17 +87,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatChipsModule,
     MatInputModule,
     MatListModule,
-
+    NgbModule,
+ 
   ],
 
-  providers: [/*{
-    provide: HTTP_INTERCEPTORS,
-    useClass: InterceptorService,
-    multi: true
-  },*/HospitalService],
+  providers: [HospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
 
-  

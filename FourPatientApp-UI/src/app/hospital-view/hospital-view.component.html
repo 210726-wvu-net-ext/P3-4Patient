@@ -25,8 +25,6 @@
 </pre>
 
 
-
-
 <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -64,9 +62,10 @@
                   <div class="flex items-center">
                     
                     <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
+                      <a class="text-sm font-medium text-gray-900" routerLink="/details/{{data.id}}" >
+                        <!-- style= color:blue maybe -->
                         {{data.name}}
-                      </div>
+                      </a>
                       <div class="text-sm text-gray-500">
                         
                       </div>
@@ -78,19 +77,56 @@
                   <div class="text-sm text-gray-500">{{data.zipCode}}</div>
                 </td>
                 <td class="px-14 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    {{data.comfort}}
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-fulltext-green-800">
+                    <!-- {{data.comfort}} -->
+                    <div>
+                    <ng-template #t let-fill="fill">
+                      <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                      </span>
+                    </ng-template>
+                    
+                    <ngb-rating [(rate)]=data.comfort [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
+
                   </span>
                 </td>
                 <td class="px-14 py-5 whitespace-nowrap text-sm text-gray-500">
-                  {{data.nursing}}
+                  <!-- {{data.nursing}} -->
+                  <div>
+                    <ng-template #t let-fill="fill">
+                      <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                      </span>
+                    </ng-template>
+                    
+                    <ngb-rating [(rate)]=data.nursing [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
                 </td>
                 <td class="px-16 py-3 whitespace-nowrap text-sm text-gray-500">
-                  {{data.accomodations}}
+                  <!-- {{data.accomodations}} -->
+                  <div>
+                    <ng-template #t let-fill="fill">
+                      <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                      </span>
+                    </ng-template>
+                    
+                    <ngb-rating [(rate)]=data.accomodations [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
                     
                   </td>
                   <td class="px-14 py-3 whitespace-nowrap text-sm text-gray-500">
-                    {{data.cleanliness}}
+                    <!-- {{data.cleanliness}} -->
+                    <div>
+                      <ng-template #t let-fill="fill">
+                        <span class="star" [class.full]="fill === 100">
+                          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                      </ng-template>
+                      
+                      <ngb-rating [(rate)]=data.cleanliness [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                    </div>
                     
                   </td>
                 <td class="px-16 py-4 whitespace-nowrap text-right text-sm font-medium">
