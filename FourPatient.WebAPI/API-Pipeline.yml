@@ -1,20 +1,28 @@
 trigger:
-- master
-- Develop
+  branches:
+    include:
+    - master
+    - Develop
+  paths:
+    include:
+    - FourPatient.WebAPI
 
 pr:
   branches:
     include:
     - master
+  paths:
+    include:
+    - FourPatient.WebAPI
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  solution: './FourPatient.WebApi/*.sln'
+  solution: './FourPatient.WebAPI/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  symptDirectory: './FourPatient.WebApi'
+  symptDirectory: './FourPatient.WebAPI'
   cReg: '2107-p3-acr-FourPatient'
 
 stages:
