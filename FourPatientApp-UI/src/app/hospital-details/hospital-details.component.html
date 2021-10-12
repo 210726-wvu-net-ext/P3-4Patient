@@ -90,7 +90,8 @@
                   <div class="ml-16 text-lg leading-6 font-medium text-gray-900">Accommodation</div>
                 </dt>
                 <dd class="mt-2 ml-16 text-base text-gray-500">
-                  {{hospital?.accomodations}}
+                  {{hospital?.accomodations}}          
+
                 </dd>
               </div>     
             </dl>
@@ -159,20 +160,70 @@
               </td>
               <td class="px-10 py-1 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  {{review.comfort}}
+                
+                  <div>
+                    <ng-template #t let-fill="fill">
+                      <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                      </span>
+                    </ng-template>
+                    
+                    <ngb-rating [(rate)]=review.comfort [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
+
                 </span>
               </td>
               <td class="px-10 py-1 whitespace-nowrap text-sm text-gray-500">
-                {{review.nursing.averageN}}
+                
+                <div>
+                  <ng-template #t let-fill="fill">
+                    <span class="star" [class.full]="fill === 100">
+                      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                    </span>
+                  </ng-template>
+                  
+                  <ngb-rating [(rate)]=review.nursing.averageN [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                </div>
+
               <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-500">
-              {{review.accommodation.averageA}}
+             
+              <div>
+                <ng-template #t let-fill="fill">
+                  <span class="star" [class.full]="fill === 100">
+                    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                  </span>
+                </ng-template>
+                
+                <ngb-rating [(rate)]=review.accommodation.averageA [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+              </div>
+
                   
                 </td>
                 <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-500">
-                  {{review.cleanliness.averageCl}}                  
+                  
+                  <div>
+                    <ng-template #t let-fill="fill">
+                      <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                      </span>
+                    </ng-template>
+                    
+                    <ngb-rating [(rate)]=review.cleanliness.averageCl [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
+                 
                 </td>
                 <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-500">
-                  {{review.covid.averageC}}                  
+                 
+                  <div>
+                    <ng-template #t let-fill="fill">
+                      <span class="star" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                      </span>
+                    </ng-template>
+                    
+                    <ngb-rating [(rate)]=review.covid.averageC [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                  </div>
+                 
                 </td>
               <td class="px-16 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <a href="#" class="text-indigo-600 hover:text-indigo-900">{{review.datePosted}}</a>

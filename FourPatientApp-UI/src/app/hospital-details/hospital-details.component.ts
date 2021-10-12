@@ -12,7 +12,7 @@ import { Review } from '../interfaces/review';
 })
 export class HospitalDetailsComponent implements OnInit {
 
-  @Input() hospital?: Hospital;
+  @Input() hospital?: Hospital 
   // @Input() review?: Review;
   
   reviews: Review[] | null = null;
