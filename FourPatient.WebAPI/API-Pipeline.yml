@@ -1,20 +1,28 @@
 trigger:
-- master
-- Develop
+  branches:
+    include:
+    - master
+    - Develop
+  paths:
+    include:
+    - FourPatient.WebAPI
 
 pr:
   branches:
     include:
     - master
+  paths:
+    include:
+    - FourPatient.WebAPI
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
-  solution: './FourPatient.WebApi/*.sln'
+  solution: './FourPatient.WebAPI/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  symptDirectory: './FourPatient.WebApi'
+  symptDirectory: './FourPatient.WebAPI'
   cReg: '2107-p3-acr-FourPatient'
 
 stages:
@@ -61,13 +69,6 @@ stages:
 
     - task: SonarCloudPublish@1
       displayName: 'Publish results on build summary'
-
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
-        
         
 - stage: Docker
   jobs:
@@ -97,7 +98,4 @@ stages:
           publishLocation: 'pipeline'
       #logout
       - task: Docker@2
-        displayName: Logout
-        inputs:
-          containerRegistry: $(cReg)
-          command: 'logout'
+... (4 lines left)

@@ -89,14 +89,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
   ],
 
-  providers: [/*{
-    provide: HTTP_INTERCEPTORS,
-    useClass: InterceptorService,
-    multi: true
-  },*/HospitalService],
+  providers: [HospitalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
 
-  
