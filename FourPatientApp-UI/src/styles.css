@@ -17,6 +17,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       left: 80%;
       position:absolute;
   }
+  .carousel-inner {
+    position: inherit;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.carousel {
+    position: inherit;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+img, video {
+    height: auto;
+    position: inherit;
+    width: 100%;
+}
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+}
 
   /* styles: [
    `
@@ -38,7 +68,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   `,
   ] */
 
-    
+  /* ngb-carousel .picsum-img-wrapper {
+    position: relative;
+    height: 0;
+    padding-top: 55%; /* Keep ratio for 900x500 images */
+  /* }
+  
+  ngb-carousel .picsum-img-wrapper>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  } */
+   
      .star {
        position: relative;
        display: inline-block;
