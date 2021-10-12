@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
   name: fourpatient
 
+
 ---
 apiVersion: v1
 kind: Service
@@ -12,9 +13,10 @@ metadata:
   name: fourpatient-webapi
 spec: 
   type: LoadBalancer
-    port:
-    - port: 80
-    selector: fourpatient
+  ports:
+  - port: 80
+  selector: 
+    app: fourpatient
     role: api
 
 ---
