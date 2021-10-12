@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: fourpatient
-​
+
 ---
 apiVersion: v1
 kind: Service
@@ -17,7 +17,7 @@ spec:
   selector:
     app: fourpatient
     role: ui
-​
+
 ---
 apiVersion: apps/v1
 kind: Deployment
