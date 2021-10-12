@@ -3,7 +3,8 @@ import packageInfo from '../../auth_config.json';
 
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:32263/api',
+  BaseURL: 'http://fourpatient-frontend.eastus.cloudapp.azure.com/',
+  apiUrl: 'http://fourpatient-frontend.eastus.cloudapp.azure.com/api',
   auth: {
     domain: packageInfo.domain,
     clientId: packageInfo.clientId,

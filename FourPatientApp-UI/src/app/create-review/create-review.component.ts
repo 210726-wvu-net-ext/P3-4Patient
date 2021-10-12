@@ -24,7 +24,9 @@ export class CreateReviewComponent implements OnInit {
     comfort: new FormControl(4.43),
     datePosted: new FormControl(new Date()),
     message: new FormControl(''),
-    hospitalid: new FormControl(''),
+    hospitalid: new FormControl([
+      Validators.required
+    ]),
     patientid: new FormControl('')
   });
 
@@ -174,7 +176,11 @@ addAccommodation(){
 }
 
   async addTotal(){
-    this.addReview();
+    if (this.reviewForm.controls['hospitalid'].valid){
+      this.addReview();
+    }else{
+      alert('Did not choose hospital!');
+    }
 
   }
 }
