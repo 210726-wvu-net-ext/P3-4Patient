@@ -22,12 +22,14 @@ export class HospitalViewComponent implements OnInit {
     this.GetHospitals();
   }
   search(){
+   
     this.hospitalservice.SearchHospitals(this.searchInput).subscribe(
       (res:any)=>{
         console.log(res);
         this.hospitals = res;
       }
 
+      
     );
   }
   GetHospitals()
@@ -51,6 +53,9 @@ export class HospitalViewComponent implements OnInit {
   SortByName(){
     this.hospitals.sort((a,b) =>( a.name > b.name)? 1: -1)
   }
+  // SortByNameReverse(){
+  //   this.hospitals.sort((a,b) =>( a.name > b.name)? -1: 1)
+  // }
     // To save Edit
     // save(): void {
     //   if (this.hero) {
