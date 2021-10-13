@@ -174,11 +174,9 @@ addAccommodation(){
 }
 
   async addTotal(){
-    if (this.reviewForm.controls['hospitalid'].value !== ''){
-      this.addReview();
-    }else{
-      alert('Did not choose hospital!');
-    }
+
+    this.addReview();
+
 
   }
 }

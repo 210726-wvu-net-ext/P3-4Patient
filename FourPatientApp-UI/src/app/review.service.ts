@@ -22,7 +22,7 @@ import { environment as env } from '../environments/environment';
     }
 
     GetReviewbyHospitalId(hospitalid : number) :Observable<Review[]>{
-      debugger;
+    
       return this.https.get<Review[]>(this.APIUrl+'/Review/'+ hospitalid)
     }
     
