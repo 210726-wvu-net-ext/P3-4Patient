@@ -10,7 +10,6 @@ kind: Service
 metadata:
   name: fourpatient-webapi
 spec: 
-  type: LoadBalancer
   ports:
   - port: 80
   selector: 
