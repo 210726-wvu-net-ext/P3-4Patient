@@ -98,4 +98,7 @@ stages:
           publishLocation: 'pipeline'
       #logout
       - task: Docker@2
-... (4 lines left)
+        displayName: Logout
+        inputs:
+          containerRegistry: $(cReg)
+          command: 'logout'

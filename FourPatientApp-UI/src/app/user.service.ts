@@ -4,11 +4,12 @@ import { User } from './interfaces/user';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Review } from './interfaces/review';
+import { environment as env } from '../environments/environment';
 @Injectable({
     providedIn: 'root',
   })
 export class UserService{
-    readonly APIUrl="https://localhost:44347/api";
+    readonly APIUrl=`${env.apiUrl}`;
     constructor(private https:HttpClient){ }
 
     GetReviewbyPatientId(patientid : number) :Observable<Review[]>{
