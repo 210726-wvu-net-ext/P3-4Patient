@@ -7,8 +7,6 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    service.beta.kubernetes.io/azure-dns-label-name: fourpatient-frontend
   name: fourpatient-frontend
 spec:
   type: LoadBalancer
