@@ -10,6 +10,7 @@ kind: Service
 metadata:
   name: fourpatient-webapi
 spec: 
+  type: ClusterIP
   ports:
   - port: 80
   selector: 
