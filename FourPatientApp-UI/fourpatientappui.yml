@@ -9,7 +9,6 @@ kind: Service
 metadata:
   name: fourpatient-frontend
 spec:
-  type: LoadBalancer
   ports:
   - port: 80
   selector:
